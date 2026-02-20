@@ -117,9 +117,9 @@ export const NavigationBar = ({ products }) => {
         >
 
             <CartSidebar
-  isOpen={openCart}
-  onClose={() => setOpenCart(false)}
-/>
+                isOpen={openCart}
+                onClose={() => setOpenCart(false)}
+            />
 
 
 
@@ -163,7 +163,7 @@ export const NavigationBar = ({ products }) => {
                                         color: "white",
                                     }}
                                 >
-                                    <h3 style={{ margin: 0 }}>{m.label}</h3>
+                                    <p style={{ margin: 0 }}>{m.label}</p>
                                     <FaChevronDown
                                         style={{
                                             fontSize: "14px",
@@ -201,9 +201,12 @@ export const NavigationBar = ({ products }) => {
                     </div>
 
 
-                    <div style={{ cursor: "pointer" }}>
-                        <h3 style={{ margin: 0 }}>DINING TABLE DESIGNS</h3>
-                    </div>
+                    <Link style={{
+
+                        color: "white",
+                    }}>
+                        <p style={{ margin: 0 }}>DINING TABLE DESIGNS</p>
+                    </Link>
                 </div>
 
                 <div
@@ -234,7 +237,7 @@ export const NavigationBar = ({ products }) => {
                                 color: "white",
                             }}
                         >
-                            <h3 style={{ margin: 0 }}>DOORS & FRAMES</h3>
+                            <p style={{ margin: 0 }}>DOORS & FRAMES</p>
                         </Link>
 
                         <FaChevronDown

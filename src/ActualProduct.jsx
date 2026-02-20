@@ -87,7 +87,7 @@ export const ActualProduct = () => {
 
       <div className="divider" />
 
-      <div className="ap-wrap">
+      <div className="ap-wrap" >
 
         {/* LEFT IMAGE */}
         <div className="ap-left">
@@ -144,7 +144,7 @@ export const ActualProduct = () => {
                 className="buy-now"
                 onClick={() => {
                   handleAddToCart();
-                navigate("/checkout");
+                  navigate("/checkout");
                 }}
               >
                 BUY NOW
@@ -208,6 +208,226 @@ export const ActualProduct = () => {
 
         </div>
       </div>
+
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          padding: "60px 5%",
+          boxSizing: "border-box",
+          gap: "50px"
+        }}
+      >
+        {/* LEFT SIDE — REVIEWS */}
+        <div style={{ flex: 2 }}>
+          <p className="LightFontBigger">Reviews (3)</p>
+          <p className="LightFont" style={{ marginBottom: "30px", color: "#555" }}>
+            3 reviews for -6 by 6 White Bed With Two side drawers
+          </p>
+
+          {/* Review 1 */}
+          <div style={{ marginBottom: "30px", borderBottom: "1px solid #eee", paddingBottom: "20px" }}>
+            <strong className="LightFontBig" style={{ fontSize: "20px" }}>Abbas Noor</strong> – May 4, 2024
+            <p style={{ color: "#f5b301", margin: "5px 0" }}>★★★★☆</p>
+            <p className="LightFont">Amazing and stylish bed, I would love it to know the actual price</p>
+          </div>
+
+          {/* Admin Reply */}
+          <div style={{ marginLeft: "20px", marginBottom: "30px" }}>
+            <strong>admin</strong> – May 4, 2024
+            <p className="LightFont">price indicated is actual</p>
+          </div>
+
+          {/* Review 2 */}
+          <div style={{ marginBottom: "30px", borderBottom: "1px solid #eee", paddingBottom: "20px" }}>
+            <strong className="LightFontBig" style={{ fontSize: "20px" }}>Taddy Yohannes</strong> – June 19, 2024
+            <p style={{ color: "#f5b301", margin: "5px 0" }}>★★★★☆</p>
+            <p className="LightFont">I’m interested in Lamu furniture bed. 5 by 6</p>
+          </div>
+
+          {/* Admin Reply */}
+          <div style={{ marginLeft: "20px", marginBottom: "30px" }}>
+            <strong>admin</strong> – June 19, 2024
+            <p className="LightFont">Hello. We have 5 by 6 bed available. Call/whatsapp 0722948285</p>
+          </div>
+
+          {/* Review 3 */}
+          <div style={{ marginBottom: "30px", borderBottom: "1px solid #eee", paddingBottom: "20px" }}>
+            <strong className="LightFontBig" style={{ fontSize: "20px" }}>Catherine</strong> – May 30, 2025
+            <p style={{ color: "#f5b301", margin: "5px 0" }}>★★★★★</p>
+            <p className="LightFont">The best</p>
+          </div>
+        </div>
+
+        {/* RIGHT SIDE — ADD REVIEW FORM */}
+        <div
+          style={{
+            flex: 1,
+            borderLeft: "1px solid #eee",
+            paddingLeft: "40px"
+          }}
+        >
+          <p className="LightFontBigger">Add a review</p>
+          <p style={{ color: "#666" }} className="LightFont">
+            Your email address will not be published. Required fields are marked *
+          </p>
+
+          {/* Rating */}
+          <div style={{ marginTop: "20px" }}>
+            <label className="LightFont">Your rating *</label>
+            <div style={{ color: "#f5b301", fontSize: "20px", marginTop: "5px" }}>
+              ★★★★★
+            </div>
+          </div>
+
+          {/* Review Text */}
+          <div style={{ marginTop: "20px" }}>
+            <label className="LightFont">Your review *</label>
+            <textarea
+              style={{
+                width: "100%",
+                height: "120px",
+                marginTop: "5px",
+                padding: "10px",
+                border: "1px solid #ddd",
+                outline: "none"
+              }}
+            />
+          </div>
+
+          {/* Name */}
+          <div style={{ marginTop: "20px" }}>
+            <label className="LightFont">Name *</label>
+            <input
+              type="text"
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginTop: "5px",
+                border: "1px solid #ddd"
+              }}
+            />
+          </div>
+
+          {/* Email */}
+          <div style={{ marginTop: "20px" }}>
+            <label className="LightFont">Email *</label>
+            <input
+              type="email"
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginTop: "5px",
+                border: "1px solid #ddd"
+              }}
+            />
+          </div>
+
+          {/* Checkbox */}
+          <div style={{ marginTop: "15px" }}>
+            <input type="checkbox" id="saveInfo" />
+            <label htmlFor="saveInfo" style={{ marginLeft: "8px", fontSize: "14px" }} className="LightFont">
+              Save my name, email, and website in this browser for the next time I comment.
+            </label>
+          </div>
+
+          {/* Submit Button */}
+          <button
+            style={{
+              marginTop: "25px",
+              width: "100%",
+              padding: "12px",
+              background: "#1e40af",
+              color: "white",
+              border: "none",
+              cursor: "pointer",
+              fontWeight: "600",
+              borderRadius: 0
+            }}
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+
+      <div
+        style={{
+          width: "100%",
+          padding: "60px 5%",
+          boxSizing: "border-box",
+        }}
+      >
+        {/* Top Accent Line */}
+        <div
+          style={{
+            width: "60px",
+            height: "3px",
+            background: "#d97706",
+            marginBottom: "20px"
+          }}
+        />
+
+        {/* Description Title */}
+        <p style={{ marginBottom: "20px" }} className="LightFontBig">Description</p>
+
+        {/* Description Content */}
+        <div style={{ color: "#555", lineHeight: "1.8" }}>
+          <p className="LightFont">Wood: Blue gum</p>
+          <p className="LightFont">size; 6 by 6</p>
+          <p className="LightFont">color: White</p>
+        </div>
+
+        {/* Divider */}
+        <div
+          style={{
+            margin: "40px 0 20px 0",
+            width: "40px",
+            height: "2px",
+            background: "#ccc"
+          }}
+        />
+
+        {/* Related Section */}
+        <h4 style={{ marginBottom: "20px" }}>Related</h4>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            gap: "40px",
+            flexWrap: "wrap"
+          }}
+        >
+          {/* Related Item 1 */}
+          <div style={{ flex: "1", minWidth: "250px" }}>
+            <p style={{ fontWeight: "500" }} className="LightFont">
+              5 by 6 white wooden bed with two side drawers
+            </p>
+            <p style={{ color: "#888", fontSize: "14px" }} className="LightFont">February 19, 2024</p>
+            <p style={{ color: "#aaa", fontSize: "14px" }} className="LightFont">Similar post</p>
+          </div>
+
+          {/* Related Item 2 */}
+          <div style={{ flex: "1", minWidth: "250px" }}>
+            <p style={{ fontWeight: "500" }} className="LightFont">
+              6 by 6 classic white bed with two side drawers
+            </p>
+            <p style={{ color: "#888", fontSize: "14px" }} className="LightFont">August 17, 2022</p>
+            <p style={{ color: "#aaa", fontSize: "14px" }} className="LightFont">Similar post</p>
+          </div>
+
+          {/* Related Item 3 */}
+          <div style={{ flex: "1", minWidth: "250px" }}>
+            <p style={{ fontWeight: "500" }} className="LightFont">
+              Preston beige 5 by 6 bed with two side drawers
+            </p>
+            <p style={{ color: "#888", fontSize: "14px" }} className="LightFont">March 14, 2024</p>
+            <p style={{ color: "#aaa", fontSize: "14px" }} className="LightFont">With 1 comment</p>
+          </div>
+        </div>
+      </div>
+
+
     </div>
   );
 };

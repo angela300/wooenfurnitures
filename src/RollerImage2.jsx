@@ -7,12 +7,17 @@ import { CiSearch } from "react-icons/ci";
 import { useCompare } from "./CompareContext";
 import { useWish } from "./WishContext";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "./CartContext";
+import {FaEye } from "react-icons/fa";
 
 export const RollerImage2 = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const { addToCompare, isInCompare } = useCompare();
   const { addToWish, isInWish } = useWish();
   const [selectedProduct, setSelectedProduct] = useState(null);
+
+    const { addToCart } = useCart();   // ✅ Correct placement
+    const [qty, setQty] = useState(1);
 
   const navigate = useNavigate();
 
@@ -130,6 +135,18 @@ export const RollerImage2 = () => {
           </span>
         ))}
       </div>
+    );
+  };
+
+    const handleAddToCart = () => {
+    addToCart(
+      {
+        id: selectedProduct.id,
+        title: selectedProduct.title,
+        price: selectedProduct.newPrice,
+        img: selectedProduct.img,
+      },
+      qty
     );
   };
 
@@ -256,24 +273,75 @@ export const RollerImage2 = () => {
           KSh {selectedProduct.newPrice}
         </p>
 
-        <button
-          style={{
-            marginTop: "20px",
-            padding: "12px 20px",
-            background: "#25D366",
-            color: "white",
-            border: "none",
-            cursor: "pointer"
-          }}
-          onClick={() =>
-            window.open(
-              "https://wa.me/254700025861?text=Hello%20I%20would%20like%20to%20place%20an%20order",
-              "_blank"
-            )
-          }
-        >
-          ORDER VIA WHATSAPP
-        </button>
+                <div className="ap-right">
+                  <h1>{selectedProduct.title}</h1>
+        
+                  <div className="ap-price">
+                    <span className="ap-old">
+                      KSh {selectedProduct.oldPrice.toLocaleString()}
+                    </span>
+                    <span className="ap-new">
+                      KSh {selectedProduct.newPrice.toLocaleString()}
+                    </span>
+                  </div>
+        
+                  {/* ORDER SECTION */}
+                  <div className="ap-orderBox">
+        
+                    {/* WhatsApp */}
+                    <button
+                      className="whatsapp-btn"
+                      style={{borderRadius:0}}
+                      onClick={() =>
+                        window.open(
+                          `https://wa.me/254700025861?text=Hello%20I%20would%20like%20to%20order%20${encodeURIComponent(product.title)}`,
+                          "_blank"
+                        )
+                      }
+                    >
+                      ORDER VIA WHATSAPP
+                    </button>
+        
+                    <div className="qty-cart">
+                      <div className="qty">
+                        <button onClick={() => setQty(qty > 1 ? qty - 1 : 1)}>
+                          -
+                        </button>
+                        <span>{qty}</span>
+                        <button onClick={() => setQty(qty + 1)}>+</button>
+                      </div>
+        
+                      <button
+                        className="add-cart"
+                        onClick={handleAddToCart}
+                      >
+                        ADD TO CART
+                      </button>
+        
+                      <button
+                        className="buy-now"
+                        onClick={() => {
+                          handleAddToCart();
+                          navigate("/checkout");
+                        }}
+                      >
+                        BUY NOW
+                      </button>
+                    </div>
+                  </div>
+        
+                  {/* Wishlist / Compare */}
+                  <div className="ap-links">
+                    <span><FaHeart /> Add to wishlist</span>
+                    <span><FaExchangeAlt /> Add to compare</span>
+                  </div>
+        
+                  {/* Watching section */}
+                  <div className="ap-watch">
+                    <FaEye /> 15 People watching this product now!
+                  </div>
+        
+                </div>
       </div>
     </div>
   </div>
