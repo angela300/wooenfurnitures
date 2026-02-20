@@ -21,7 +21,7 @@ import { CompareProvider } from "./CompareContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/wooenfurnitures">
 
       <CartProvider>
         <App />
