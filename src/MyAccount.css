@@ -1,0 +1,33 @@
+.myaccount-page {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Blue Hero Header */
+.myaccount-hero {
+  width: 100%;
+  height: 220px;
+  background-color: #345fb3; /* Similar to screenshot */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.LightFontBiggerMyAc {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900; /* This will now work */
+  font-size: 100px;
+  color: white;
+   -webkit-text-stroke: 1px white; 
+}
+
+.LightFontBigMyAc{
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900; /* This will now work */
+  font-size: 24px;
+  color: white;
+   -webkit-text-stroke: 1px white; 
+}

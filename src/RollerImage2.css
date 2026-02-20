@@ -1,0 +1,260 @@
+.ri2-section {
+  width: 100%;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.ri2-inner {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+
+/* Header */
+.ri2-headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 14px;
+  margin-top: 150px;
+  margin-bottom: 50px;
+}
+
+.ri2-title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+  color: #111;
+
+    font-family: 'Nunito', sans-serif;
+  font-weight: 900; /* This will now work */
+  font-size: 40px;
+  color: black;
+   -webkit-text-stroke: 1px black; 
+}
+
+.ri2-tabs {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.ri2-tab {
+  letter-spacing: 0.3px;
+  font-weight: 600;
+  color: #111;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900; /* This will now work */
+  font-size: 22px;
+  color: grey;
+   -webkit-text-stroke: 1px grey; 
+
+}
+
+.ri2-tab.active {
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  color: black;
+  -webkit-text-stroke: 1px black; 
+}
+
+.ri2-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+   border-right: 0.5px solid lightgrey;
+    border-bottom: 0.5px solid lightgrey;
+}
+
+/* responsive card sizing (NO fixed width) */
+.ri2-card {
+  box-sizing: border-box;
+  flex: 1 1 235px;   /* base size 235px, but can shrink & wrap */
+
+   border-top: 0.5px solid lightgrey;
+  border-left: 0.5px solid lightgrey;
+  padding:10px;
+  padding-top: 20px;
+}
+
+
+
+
+/* Image */
+
+
+.ri2-img {
+  width: 370px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+
+.ri2-quickIcons {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ri2-iconBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background-color: rgba(255,255,255,0.88);
+  border: 1px solid rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: #444;
+}
+
+/* Body */
+.ri2-body {
+  padding: 12px 14px 14px 14px;
+}
+
+.ri2-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+  text-transform: lowercase;
+  min-height: 44px;
+
+    font-family: 'Nunito', sans-serif;
+  font-weight: 900; /* This will now work */
+  font-size: 22px;
+  color: black;
+   -webkit-text-stroke: 1px black; 
+}
+
+/* Stock */
+.ri2-stockRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+}
+
+.ri2-check {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  background-color: #ff8a00;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.check_stock {
+      font-family: 'Nunito', sans-serif;
+  font-weight: 900; /* This will now work */
+  font-size: 22px;
+  color: black;
+   -webkit-text-stroke: 1px black; 
+}
+
+/* Prices */
+.ri2-priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.ri2-oldPrice {
+  color: #a9a9a9;
+  text-decoration: line-through;
+  font-size: 14px;
+  font-weight: 600;
+
+    font-family: 'Nunito', sans-serif;
+  font-weight: 900; /* This will now work */
+  font-size: 22px;
+  -webkit-text-stroke: 1px #a9a9a9; 
+
+}
+
+.ri2-newPrice {
+  color: #f0a11a;
+  font-size: 18px;
+  font-weight: 900;
+
+    font-family: 'Nunito', sans-serif;
+  font-weight: 900; /* This will now work */
+  font-size: 22px;
+  -webkit-text-stroke: 1px #f0a111 
+
+}
+
+/* Button */
+.ri2-btn {
+  margin-top: 14px;
+  width: 370px;
+  height:65px;
+  background-color: #14c357;
+  color: #fff;
+  padding: 12px 10px;
+  cursor: pointer;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  text-transform: uppercase;
+  font-size: 13px;
+  border-radius: 0;
+
+   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.25);
+}
+
+.order_via_wasp {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900; /* This will now work */
+  font-size: 17px;
+  margin-left: 5px;
+  color: white;
+   -webkit-text-stroke: 1px white; 
+}
+
+.ri2-stars {
+  display: flex;
+  gap: 2px;
+  margin-top: 6px;
+}
+
+.ri2-star {
+  font-size: 16px;
+  line-height: 16px;
+  color: #d9d9d9; /* empty star */
+}
+
+.ri2-star.filled {
+  color: #f5b301; /* filled star */
+}
+

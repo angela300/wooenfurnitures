@@ -1,0 +1,68 @@
+.roller-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 800px;
+  background-color: white;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.roller-container {
+  width: 100%;
+}
+
+.roller-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900; /* This will now work */
+  font-size: 40px;
+  color: black;
+   -webkit-text-stroke: 1px black; 
+   margin-left: 20px;
+   margin-top: 50px;
+   margin-bottom: 50px;
+}
+
+.roller-grid {
+  display: flex;
+  flex-wrap: wrap;       /* allows items to move to next line */
+  gap: 22px;
+  justify-content: center;
+}
+
+.roller-card {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin-right: 10px;
+  height:400px;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 50px;
+
+}
+
+.roller-card:hover {
+  transform: translateY(-4px);
+}
+
+img {
+  width: 330px;
+  max-height: 600px;
+}
+
+.roller-card-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900; /* This will now work */
+  font-size: 22px;
+  color: black;
+   -webkit-text-stroke: 1px black; 
+}
+
+/* .roller-count {
+  margin: 0;
+  font-size: 14px;
+  color: #6b6b6b;
+} */

@@ -1,0 +1,252 @@
+.track-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.track-card {
+  width: 450px;
+  border: 1px solid #eee;
+  padding: 30px;
+  border-radius: 8px;
+  background: white;
+}
+
+.track-card h2 {
+  margin-bottom: 10px;
+}
+
+.track-card p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  height: 37px;
+  width: 500px;
+  margin-top: 10px;
+  background-color: #FAFAFA;
+}
+
+.track-btn {
+  width: 200px;
+  padding: 0px;
+  background: #448EE4;
+  color: white;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 0;
+  height:60px;
+}
+
+.track-btn:hover {
+  background: #b9741c;
+}
+
+.error {
+  color: red;
+  margin-top: 15px;
+}
+
+.track-result {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f7f7f7;
+}
+
+.shipping-wrap {
+  display: flex;
+  gap: 40px;
+  padding: 60px 40px;
+}
+
+/* LEFT COLUMN */
+.shipping-left {
+  flex: 1;
+   border: 1px solid #eee;
+   padding: 30px;
+  
+}
+
+.shipping-left h2 {
+  margin-bottom: 30px;
+}
+
+.ship-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.ship-icon {
+  font-size: 28px;
+  color: #2c5aa0;
+  margin-top: 5px;
+}
+
+.ship-item h4 {
+  margin-bottom: 6px;
+}
+
+.ship-item p {
+  color: #666;
+}
+
+/* CENTER */
+.shipping-center {
+  flex: 1.3;
+  position: relative;
+}
+
+.shipping-center img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  color: white;
+  max-width: 80%;
+}
+
+.overlay h2 {
+  margin-bottom: 15px;
+}
+
+.overlay p {
+  margin-bottom: 20px;
+}
+
+.view-btn {
+  background: #d38b21;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 0;
+}
+
+/* RIGHT */
+.shipping-right {
+  flex: 1;
+    border: 1px solid #eee;
+    padding: 30px;
+}
+
+.shipping-right h2 {
+  margin-bottom: 20px;
+}
+
+.shipping-right p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.contact-btn {
+    border-radius: 0;
+  background: #d38b21;
+  border: none;
+  padding: 12px 20px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons svg {
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.social-icons svg:hover {
+  color: #d38b21;
+}
+
+.LightFontTrack {
+  font-family: 'Nunito', sans-serif;
+  /* Set font to Nunito */
+  font-weight: 400;
+  /* Regular weight */
+  font-size: 24px;
+  /* Keep your original size */
+  color: white;
+  /* Keep your original color */
+}
+
+.LightFontBigTrack {
+      font-family: 'Nunito', sans-serif;
+  font-weight: 900; /* This will now work */
+  font-size: 24px;
+  color: white;
+   -webkit-text-stroke: 1px white; 
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons svg {
+  font-size: 18px;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Facebook */
+.social-icons svg:nth-child(1) {
+  background: #3b5998;
+}
+
+/* Twitter / X */
+.social-icons svg:nth-child(2) {
+  background: #000000;
+}
+
+/* Pinterest */
+.social-icons svg:nth-child(3) {
+  background: #bd081c;
+}
+
+/* LinkedIn */
+.social-icons svg:nth-child(4) {
+  background: #0077b5;
+}
+
+/* Telegram */
+.social-icons svg:nth-child(5) {
+  background: #0088cc;
+}
+
+/* Hover effect */
+.social-icons svg:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}

@@ -1,0 +1,284 @@
+.pci-wrap {
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 26px 22px;
+}
+
+.pci-inner {
+width: 100%;
+  margin: 0 auto;
+  display: flex;
+  gap: 22px;
+}
+
+/* LEFT */
+.pci-side {
+  width: 480px;
+  border-right: 1px solid #eee;
+  padding-right: 18px;
+  box-sizing: border-box;
+  padding:20px
+}
+
+.pci-sideTitle {
+  margin: 0 0 14px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+}
+
+.pci-sliderBar {
+  height: 4px;
+  background: #f0f0f0;
+  position: relative;
+  margin: 10px 0 18px 0;
+}
+.pci-sliderBar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 4px;
+  width: 100%;
+  background: #cc8e2c;
+}
+
+.pci-priceRow {
+  margin-bottom: 10px;
+}
+
+.pci-priceText {
+  font-size: 14px;
+  color: #333;
+}
+
+.pci-priceInputs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.pci-inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.pci-inputGroup label {
+  font-size: 12px;
+  color: #666;
+}
+.pci-inputGroup input {
+  height: 36px;
+  border: 1px solid #e6e6e6;
+  padding: 0 10px;
+  outline: none;
+}
+
+.pci-filterBtn {
+  height: 55px;
+  width: 100px;
+  border: none;
+  background: #f3f3f3;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 0;
+}
+
+.pci-divider {
+  height: 1px;
+  background: #eee;
+  margin: 22px 0;
+}
+
+.pci-checkRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  color: #444;
+  margin: 10px 0;
+}
+
+/* RIGHT */
+.pci-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.pci-topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+  margin-bottom: 47px;
+}
+
+.pci-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #666;
+}
+.pci-breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+.pci-breadcrumb b {
+  color: #222;
+}
+
+.pci-tools {
+  display: flex;
+  width:700px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.pci-show {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333;
+}
+.pci-showOpt {
+  cursor: pointer;
+}
+
+.pci-viewIcons {
+  display: flex;
+  gap: 10px;
+  color: #444;
+  font-size: 18px;
+}
+
+.pci-sort {
+  height: 36px;
+  border: 1px solid #e6e6e6;
+  padding: 0 10px;
+  background: #fff;
+}
+
+/* products */
+.pci-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.pci-card {
+  width: 320px;
+  border: 1px solid #eee;
+  background: #fff;
+}
+
+.pci-imgWrap {
+  position: relative;
+  height: 320px;
+  background: #fafafa;
+  overflow: hidden;
+}
+
+.pci-imgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pci-discount {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #cc8e2c;
+  color: #fff;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.pci-title {
+  margin: 10px 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.sidebar-wrap {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.stock-section h4,
+.top-rated h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.divider {
+  height: 1px;
+  background: #ddd;
+  margin: 20px 0;
+}
+
+.top-product {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.top-product img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.stars {
+  color: #f5b301;
+  display: flex;
+  gap: 3px;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.price-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.old-price {
+  color: #999;
+  text-decoration: line-through;
+  font-size: 16px;
+}
+
+.new-price {
+  color: #e38b00;
+  font-weight: 700;
+  font-size: 16px;
+}
+

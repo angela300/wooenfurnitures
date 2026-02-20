@@ -1,0 +1,63 @@
+/* Prevent body scroll when sidebar open */
+body.sidebar-open {
+  overflow: hidden;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 520px;
+  height: 100%;
+  background: #fff;
+  transform: translateX(100%); /* hidden */
+  transition: transform 0.35s ease;
+  z-index: 1000;
+  padding: 25px;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* Slide in */
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.LightFontSignIn {
+  font-family: 'Nunito', sans-serif;
+  /* Set font to Nunito */
+  font-weight: 400;
+  /* Regular weight */
+  font-size: 24px;
+  /* Keep your original size */
+  color: black;
+  /* Keep your original color */
+
+}
+
+
+.divider {
+  height: 1px;
+  background: #ddd;
+  margin: 20px 0;
+}
+

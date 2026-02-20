@@ -1,0 +1,176 @@
+.ri5-footer {
+  width: 100%;
+  background-color: #5a5a5a;
+  color: #ddd;
+  padding: 60px 40px;
+  box-sizing: border-box;
+}
+
+/* KEEP YOUR FONT CLASSES */
+.LightFontFoot {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: white;
+  margin: 0 0 12px 0;   /* important: consistent spacing */
+  margin-bottom:20px;
+}
+
+.LightFontBigFoot {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  color: white;
+  -webkit-text-stroke: 1px white;
+  margin: 0 0 16px 0;   /* important: consistent spacing */
+  margin-bottom:20px;
+}
+
+/* LAYOUT (this is what got disrupted) */
+.ri5-container {
+  width:"100%";
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* each column */
+.ri5-col {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+/* left about should be wider */
+.ri5-about {
+  flex: 2 1 360px;
+  min-width: 320px;
+}
+
+.ri5-logo {
+  width: 280px;
+  margin-bottom: 18px;
+
+}
+
+/* make the long paragraph readable (same font kept) */
+.ri5-paragraph {
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+/* store images */
+.ri5-storeBtns {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.ri5-storeImg {
+  height: 48px;
+  width: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.ri5-storeImgBorder {
+  border-radius: 12px;
+  border: 2px solid #333;
+}
+
+/* social section spacing */
+.ri5-socialTitle {
+  margin-top: 22px;
+}
+
+/* social icons */
+.ri5-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+.fb { background-color: #3b5998; }
+.tw { background-color: #000; }
+.pin { background-color: #e60023; }
+.li { background-color: #0077b5; }
+.tg { background-color: #2aabee; }
+
+.footer-bottom-inner {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+   border-top: 1px solid #6a6a6a;
+   padding-top: 40px;
+}
+
+.footer-bottom-text {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  color: #ddd;
+}
+
+.footer-bottom-text strong {
+  color: #fff;
+  font-weight: 800;
+}
+
+.footer-payments {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.payment-icon {
+  font-size: 34px;
+  color: #ffffff;
+  opacity: 0.75;
+}
+
+
+.footer-payments img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap");
+
+
+.footer-line {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.85);
+}
+
+/* Heavy bold */
+.footer-heavy {
+  font-weight: 900;          /* strongest available */
+  color: #ffffff;
+  color: #f2f2f2; 
+  letter-spacing: 0.3px;     /* slightly tighter look */
+}
+
+
+
