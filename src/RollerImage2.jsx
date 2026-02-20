@@ -1,8 +1,21 @@
 import React from "react";
 import './RollerImage2.css';
 import { FaWhatsapp } from "react-icons/fa";
+import { useState } from "react";
+import { FaHeart, FaExchangeAlt, FaShoppingCart, FaChevronDown } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
+import { useCompare } from "./CompareContext";
+import { useWish } from "./WishContext";
+import { useNavigate } from "react-router-dom";
 
 export const RollerImage2 = () => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const { addToCompare, isInCompare } = useCompare();
+  const { addToWish, isInWish } = useWish();
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const navigate = useNavigate();
+
   const products = [
     {
       title: "classic grey 3 seater sofa",
@@ -138,7 +151,135 @@ export const RollerImage2 = () => {
             const rating = Math.max(0, Math.min(5, Number(p.rating || 0)));
 
             return (
-              <div className="ri2-card" key={`${p.title}-${idx}`} style={{display:"flex", flexDirection:"column", justifyContent:"space-between", alignItems:"center"}}>
+              <div onMouseEnter={() => setHoveredIndex(idx)}
+                onMouseLeave={() => setHoveredIndex(null)} className="ri2-card" key={`${p.title}-${idx}`} style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center", position: "relative", }}>
+                {hoveredIndex === idx && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      right: "25px",
+                      top: "25px",
+                      background: "#eee",
+                      padding: "10px",
+                      zIndex: 1005,
+                      width: "80px",
+                      height: "200px",
+                      padding: "30px",
+                      paddingTop: 20,
+                      paddingBottom: 20,
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      onClick={() => {
+                        if (isInCompare(p.title)) {
+                          navigate("/compare");
+                        } else {
+                          addToCompare(p);
+                        }
+                      }}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <FaExchangeAlt
+                        size={30}
+                        color={isInCompare(p.title) ? "green" : "grey"}
+                      />
+                    </div>
+                    <CiSearch size={30} color="grey"   style={{ cursor: "pointer" }}
+  onClick={() => setSelectedProduct(p)}/>
+
+                    <div onClick={() => {
+                      if (isInWish(p.title)) {
+                        navigate("/Wish");
+                      } else {
+                        addToWish(p);
+                      }
+                    }}
+                      style={{ cursor: "pointer" }}><FaHeart size={30} color={isInWish(p.title) ? "green" : "grey"} /></div>
+                  </div>)}
+
+                  {selectedProduct && (
+  <div
+    style={{
+      position: "fixed",
+      inset: 0,
+      background: "rgba(0,0,0,0.1)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 9999
+    }}
+    onClick={() => setSelectedProduct(null)} // close on outside click
+  >
+    {/* Modal Box */}
+    <div
+      style={{
+        width: "80%",
+        maxWidth: "1000px",
+        background: "white",
+        padding: "30px",
+        display: "flex",
+        gap: "30px",
+        position: "relative"
+      }}
+      onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
+    >
+      {/* Close Button */}
+      <div
+        onClick={() => setSelectedProduct(null)}
+        style={{
+          position: "absolute",
+          top: "15px",
+          right: "20px",
+          fontSize: "22px",
+          cursor: "pointer"
+        }}
+      >
+        ✕
+      </div>
+
+      {/* Image */}
+      <img
+        src={selectedProduct.img}
+        alt={selectedProduct.title}
+        style={{ width: "50%", objectFit: "cover" }}
+      />
+
+      {/* Details */}
+      <div style={{ flex: 1 }}>
+        <h2>{selectedProduct.title}</h2>
+
+        <p style={{ fontSize: "20px", fontWeight: "bold" }}>
+          KSh {selectedProduct.newPrice}
+        </p>
+
+        <button
+          style={{
+            marginTop: "20px",
+            padding: "12px 20px",
+            background: "#25D366",
+            color: "white",
+            border: "none",
+            cursor: "pointer"
+          }}
+          onClick={() =>
+            window.open(
+              "https://wa.me/254700025861?text=Hello%20I%20would%20like%20to%20place%20an%20order",
+              "_blank"
+            )
+          }
+        >
+          ORDER VIA WHATSAPP
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+
                 <img src={p.img} alt={p.title} className="ri2-img" />
                 <div className="ri2-body">
                   <p className="ri2-name">{p.title}</p>
@@ -165,19 +306,19 @@ export const RollerImage2 = () => {
                   </div>
 
                   <button className="ri2-btn">
-                    <FaWhatsapp className="ri2-waIcon" size={22}/>
+                    <FaWhatsapp className="ri2-waIcon" size={22} />
                     <p
-  className="order_via_wasp"
-  onClick={() =>
-    window.open(
-      "https://wa.me/254700025861?text=Hello%20I%20would%20like%20to%20place%20an%20order",
-      "_blank"
-    )
-  }
-  style={{ cursor: "pointer" }}
->
-  ORDER VIA WHATSAPP
-</p>
+                      className="order_via_wasp"
+                      onClick={() =>
+                        window.open(
+                          "https://wa.me/254700025861?text=Hello%20I%20would%20like%20to%20place%20an%20order",
+                          "_blank"
+                        )
+                      }
+                      style={{ cursor: "pointer" }}
+                    >
+                      ORDER VIA WHATSAPP
+                    </p>
 
                   </button>
                 </div>
@@ -191,4 +332,3 @@ export const RollerImage2 = () => {
     </div>
   );
 };
- 

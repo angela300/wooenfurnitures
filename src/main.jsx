@@ -18,15 +18,23 @@ import App from "./App";
 import "./index.css";
 import { CartProvider } from "./CartContext";
 import { CompareProvider } from "./CompareContext";
+import { WishProvider } from "./WishContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter basename="/wooenfurnitures">
-
-      <CartProvider>
-        <App />
-      </CartProvider>
+      <WishProvider>
+        <CompareProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </CompareProvider>
+      </WishProvider>
     </BrowserRouter>
   </React.StrictMode>
+
+
+
+
 );
 

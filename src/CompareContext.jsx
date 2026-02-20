@@ -1,33 +1,24 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 const CompareContext = createContext();
 
 export const CompareProvider = ({ children }) => {
-  const [compareItems, setCompareItems] = useState(() => {
-    const saved = localStorage.getItem("compare");
-    return saved ? JSON.parse(saved) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem("compare", JSON.stringify(compareItems));
-  }, [compareItems]);
+  const [compareItems, setCompareItems] = useState([]);
 
   const addToCompare = (product) => {
-    setCompareItems((prev) => {
-      const exists = prev.find((item) => item.id === product.id);
-      if (exists) return prev;
-      return [...prev, product];
-    });
+    const exists = compareItems.find(item => item.title === product.title);
+
+    if (!exists) {
+      setCompareItems([...compareItems, product]);
+    }
   };
 
-  const removeFromCompare = (id) => {
-    setCompareItems((prev) =>
-      prev.filter((item) => item.id !== id)
-    );
+  const removeFromCompare = (title) => {
+    setCompareItems(compareItems.filter(item => item.title !== title));
   };
 
-  const isInCompare = (id) => {
-    return compareItems.some((item) => item.id === id);
+  const isInCompare = (title) => {
+    return compareItems.some(item => item.title === title);
   };
 
   return (
@@ -36,7 +27,7 @@ export const CompareProvider = ({ children }) => {
         compareItems,
         addToCompare,
         removeFromCompare,
-        isInCompare,
+        isInCompare
       }}
     >
       {children}

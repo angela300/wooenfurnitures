@@ -13,6 +13,8 @@ import { TrackOrder } from "./TrackOrder";
 import { AboutUs } from "./AboutUs";
 import { MyAccount } from "./MyAccount";
 import { Checkout } from "./Checkout";
+import {Compare} from "./Compare";
+import { Wish } from "./Wish";
 import './App.css'
 
 export default function App() {
@@ -114,6 +116,21 @@ export default function App() {
                    <TopScreen />
                     <NavigationBar />
                     <AboutUs />      
+                    <RollerImage4 />
+                    <RollerImage5 /> </>} />
+
+                                                                    <Route path="/Compare" element={<>
+                   <TopScreen />
+                    <NavigationBar />
+                    <Compare />      
+                    <RollerImage4 />
+                    <RollerImage5 /> </>} />
+
+
+                                                                    <Route path="/Wish" element={<>
+                   <TopScreen />
+                    <NavigationBar />
+                    <Wish />      
                     <RollerImage4 />
                     <RollerImage5 /> </>} />
         <Route path="/category/:category" element={<>

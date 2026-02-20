@@ -1,17 +1,17 @@
 import React from "react";
-import { useCompare } from "./CompareContext";
+import { useWish } from "./WishContext";
 
-export const Compare = () => {
-  const { compareItems, removeFromCompare } = useCompare();
+export const Wish = () => {
+  const { wishItems, removeFromWish } = useWish();
 
   return (
     <div style={{ padding: "40px" }}>
-      <h2>Compare Products</h2>
+      <h2>Wishlist</h2>
 
-      {compareItems.length === 0 && <p>No items added.</p>}
+      {wishItems.length === 0 && <p>No items added.</p>}
 
       <div style={{ display: "flex", gap: "20px" }}>
-        {compareItems.map((item, index) => (
+        {wishItems.map((item, index) => (
           <div
             key={index}
             style={{
@@ -19,7 +19,7 @@ export const Compare = () => {
               padding: "20px",
               cursor: "pointer"
             }}
-            onClick={() => removeFromCompare(item.title)}
+            onClick={() => removeFromWish(item.title)}
           >
             <img
               src={item.img}

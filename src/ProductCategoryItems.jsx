@@ -75,7 +75,6 @@ const allProducts = [
 
 export const ProductCategoryItems = () => {
     const [openSort, setOpenSort] = useState(false);
-    const [showThreeIcons, setshowThreeIcons] = useState(false);
 
     const { category, subCategory } = useParams();
 
