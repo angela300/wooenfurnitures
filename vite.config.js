@@ -10,7 +10,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 
-const repoName = 'wooenfurniture'
+const repoName = 'wooenfurnitures'
 export default defineConfig({
   base: `/${repoName}/`, 
   plugins: [react()],  // ⚠️ must match your repo name

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-   "homepage": "https://angela300.github.io/wooenfurniture",
+   "homepage": "https://angela300.github.io/wooenfurnitures",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
