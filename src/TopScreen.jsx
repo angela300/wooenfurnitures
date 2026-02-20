@@ -12,42 +12,45 @@ export const TopScreen = () => {
         <div
             style={{     // full viewport width
                 width: "100%",
-                height: "200px",
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
                 color: "white",
                 margin: 0,
-                padding: 0
+                padding: 0,
+                       paddingLeft: "20px",
+                            paddingRight:"20px",
+                            position:"relative",
+                            marginBottom:"10px"
             }}
         >
-                <AuthSidebar
-        isOpen={openAuth}
-        onClose={() => setOpenAuth(false)}
-      />
+            <AuthSidebar
+                isOpen={openAuth}
+                onClose={() => setOpenAuth(false)}
+            />
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
-                <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "center", marginBottom:"10px"}}>
+                <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "center", marginBottom: "10px" }}>
                     <p style={{ margin: 0 }} className="LightFont">Download Now!</p>
                     <button
                         style={{
                             margin: 0,
                             backgroundColor: "#f3f3f3",
-                            width: "120px",
-                            height: "60px",
+                            width: "80px",
+                            height: "40px",
 
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            padding: 0,
+                            paddingLeft: 0,
                             border: "none",
                             borderRadius: "2px",
                             marginLeft: "20px",
                             marginRight: "10px"
                         }}
                     >
-                        <h4 className="fontBold" style={{ margin: 0 }}>
+                        <p className="LightFontBold" style={{ margin: 0, fontSize:"13px" }}>
                             SUBMIT
-                        </h4>
+                        </p>
                     </button>
 
                 </div>
@@ -55,19 +58,19 @@ export const TopScreen = () => {
                     <img
                         src={wfun}
                         alt="Wooen Furniture Logo"
-                        style={{ width: "120px", height: "auto", margin: 0, padding: 0, marginRight: "100px", marginLeft: "100px" }}
+                        style={{ width: "60px", height: "auto", margin: 0, padding: 0, marginRight: "100px", marginLeft: "100px" }}
                     />
 
-                    <p className="LightFont">Open until <span style={{ color: "blue", fontWeight:"bold" }}>6PM</span></p>
+                    <p className="LightFont">Open until <span style={{ color: "blue", fontWeight: "bold" }}>6PM</span></p>
                 </div>
             </div>
-            <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", alignItems: "center", paddingTop: "70px"}}>
-                
-                                                    <Link to={`/AboutUs/`}>
-                                        <p className="LightFont">About us<span style={{ marginLeft: "15px", marginRight:"15px" }}>|</span></p>
-                                    </Link>
-               <Link to={`/TrackOrder/`}><p className="LightFont">Track order<span style={{ marginLeft: "15px", marginRight:"15px" }}>|</span></p> </Link>
-                <IoMdContact size={50} color="black" style={{  marginRight:"15px" }}  onClick={() => setOpenAuth(true)}/>
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", alignItems: "center", paddingTop: "55px" }}>
+
+                <Link to={`/AboutUs/`}>
+                    <p className="LightFont">About us<span style={{ marginLeft: "15px", marginRight: "15px" }}>|</span></p>
+                </Link>
+                <Link to={`/TrackOrder/`}><p className="LightFont">Track order<span style={{ marginLeft: "15px", marginRight: "15px" }}>|</span></p> </Link>
+                <IoMdContact size={50} color="black" style={{ marginRight: "15px" }} onClick={() => setOpenAuth(true)} />
             </div>
         </div>
     );

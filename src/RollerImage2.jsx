@@ -155,7 +155,7 @@ export const RollerImage2 = () => {
     <div className="ri2-section" >
       <div className="ri2-inner">
         <div className="ri2-headerRow">
-          <h2 className="ri2-title">Featured Products</h2>
+          <h2 className="LightFontBigger">Featured Products</h2>
           <div className="ri2-tabs">
             <span className="ri2-tab active">NEW</span>
             <span className="ri2-tab">FEATURED</span>
@@ -350,7 +350,7 @@ export const RollerImage2 = () => {
 
                 <img src={p.img} alt={p.title} className="ri2-img" />
                 <div className="ri2-body">
-                  <p className="ri2-name">{p.title}</p>
+                  <p className="LightFontBold">{p.title}</p>
                   {/* ⭐ Stars */}
                   <div className="ri2-stars" aria-label={`${rating} out of 5 stars`}>
                     {Array.from({ length: 5 }).map((_, i) => (
@@ -365,7 +365,7 @@ export const RollerImage2 = () => {
 
                   <div className="ri2-stockRow">
                     <span className="ri2-check">✓</span>
-                    <p className="check_stock">In stock</p>
+                    <p className="LightFontBold">In stock</p>
                   </div>
 
                   <div className="ri2-priceRow">
@@ -374,7 +374,7 @@ export const RollerImage2 = () => {
                   </div>
 
                   <button className="ri2-btn">
-                    <FaWhatsapp className="ri2-waIcon" size={22} />
+                    <FaWhatsapp className="ri2-waIcon" size={15} />
                     <p
                       className="order_via_wasp"
                       onClick={() =>

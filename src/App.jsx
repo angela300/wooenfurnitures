@@ -90,9 +90,9 @@ export default function App() {
           <RollerImage />
           <RollerImage1 />
           <RollerImage2 />
-          <RollerImage3 />
+          {/* <RollerImage3 />
           <RollerImage4 />
-          <RollerImage5 />
+          <RollerImage5 /> */}
         </>} />
         <Route path="/checkout" element={<>
                    <TopScreen />

@@ -21,7 +21,7 @@
   align-items: flex-start;
   gap: 16px;
   margin-bottom: 14px;
-  margin-top: 150px;
+  margin-top: 0px;
   margin-bottom: 50px;
 }
 
@@ -53,7 +53,7 @@
   cursor: pointer;
   font-family: 'Nunito', sans-serif;
   font-weight: 900; /* This will now work */
-  font-size: 22px;
+  font-size: 15px;
   color: grey;
    -webkit-text-stroke: 1px grey; 
 
@@ -95,7 +95,7 @@
 
 
 .ri2-img {
-  width: 370px;
+  width: 250px;
   height: auto;
   object-fit: cover;
   display: block;
@@ -157,16 +157,16 @@
 }
 
 .ri2-check {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   border-radius: 3px;
   background-color: #ff8a00;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 7px;
+  line-height: 7px;
 }
 
 .check_stock {
@@ -189,24 +189,22 @@
 .ri2-oldPrice {
   color: #a9a9a9;
   text-decoration: line-through;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
 
     font-family: 'Nunito', sans-serif;
   font-weight: 900; /* This will now work */
-  font-size: 22px;
   -webkit-text-stroke: 1px #a9a9a9; 
 
 }
 
 .ri2-newPrice {
   color: #f0a11a;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 900;
 
     font-family: 'Nunito', sans-serif;
   font-weight: 900; /* This will now work */
-  font-size: 22px;
   -webkit-text-stroke: 1px #f0a111 
 
 }
@@ -214,13 +212,13 @@
 /* Button */
 .ri2-btn {
   margin-top: 14px;
-  width: 370px;
-  height:65px;
+  width: 220px;
+  height:35px;
   background-color: #14c357;
   color: #fff;
-  padding: 12px 10px;
+  
   cursor: pointer;
-  font-weight: 900;
+  
   letter-spacing: 0.5px;
   display: flex;
   align-items: flex-start;
@@ -235,8 +233,8 @@
 
 .order_via_wasp {
   font-family: 'Nunito', sans-serif;
-  font-weight: 900; /* This will now work */
-  font-size: 17px;
+  font-weight: 200; /* This will now work */
+  font-size: 12px;
   margin-left: 5px;
   color: white;
    -webkit-text-stroke: 1px white; 

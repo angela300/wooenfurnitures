@@ -88,14 +88,6 @@ export const NavigationBar = ({ products }) => {
         padding: "15px"
     };
 
-    const itemStyle = {
-        margin: 0,
-        padding: "10px 14px",
-        fontSize: "14px",
-        cursor: "pointer",
-        whiteSpace: "nowrap",
-    };
-
     const [showSearch, setShowSearch] = useState(false);
 
     return (
@@ -109,10 +101,10 @@ export const NavigationBar = ({ products }) => {
                 justifyContent: "space-between",
                 alignItems: "center",
                 boxSizing: "border-box",
-                padding: "10px 20px",
                 overflow: "visible",
                 position: "relative",
-                zIndex: 999,
+                paddingLeft:"20px",
+                paddingRight:"20px",
             }}
         >
 
@@ -130,13 +122,12 @@ export const NavigationBar = ({ products }) => {
                 />)}
 
             {/* LEFT: NAV LINKS */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "6px", overflow: "visible" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px", overflow: "visible" }}>
                 <div
                     style={{
                         display: "flex",
                         alignItems: "center",
                         gap: "28px",
-                        height: "60px",
                         overflow: "visible",
                     }}
                 >
@@ -188,6 +179,12 @@ export const NavigationBar = ({ products }) => {
                                                     textDecoration: "none",
                                                     color: "#111",
                                                 }}
+                                                                                onMouseEnter={(e) =>
+                                    (e.currentTarget.style.color = "orange")
+                                }
+                                onMouseLeave={(e) =>
+                                    (e.currentTarget.style.color = "#111")
+                                }
                                                 onClick={() => setOpenMenu(null)}
                                             >
                                                 {txt}
@@ -211,14 +208,12 @@ export const NavigationBar = ({ products }) => {
 
                 <div
                     style={{
-                        height: "30px",
                         display: "flex",
                         alignItems: "center",
-                        position: "relative"
+                        position: "relative",
                     }}
-                    onMouseEnter={() => setOpenMenu("DOORS")}
-                // ❌ remove onMouseLeave here unless you want it to close when leaving entire area
-                >
+                    // ❌ remove onMouseLeave here unless you want it to close when leaving entire area
+                    >
 
                     {/* Label row */}
                     <div
@@ -227,7 +222,7 @@ export const NavigationBar = ({ products }) => {
                             alignItems: "center",
                             gap: "8px",
                             cursor: "pointer",
-                            userSelect: "none",
+                            userSelect: "none"
                         }}
                     >
                         <Link
@@ -236,6 +231,7 @@ export const NavigationBar = ({ products }) => {
                                 textDecoration: "none",
                                 color: "white",
                             }}
+                             onMouseEnter={() => setOpenMenu("DOORS")}
                         >
                             <p style={{ margin: 0 }}>DOORS & FRAMES</p>
                         </Link>
@@ -265,7 +261,6 @@ export const NavigationBar = ({ products }) => {
                                 boxShadow: "0 10px 22px rgba(0,0,0,0.15)",
                                 borderRadius: "6px",
                                 minWidth: "220px",
-                                zIndex: 999999
                             }}
                         >
                             <Link
@@ -307,8 +302,8 @@ export const NavigationBar = ({ products }) => {
                         alignItems: "center",
                         backgroundColor: "white",
                         padding: "8px 12px",
-                        width: "350px",
-                        height: "50px",
+                        width: "250px",
+                        height: "40px",
                         boxSizing: "border-box",
                     }}
                 >
@@ -324,7 +319,7 @@ export const NavigationBar = ({ products }) => {
                             fontFamily: "Nunito, sans-serif",
                         }}
                     />
-                    <span style={{ fontSize: "22px", color: "gray" }}>🔍</span>
+                    <span style={{ fontSize: "17px", color: "gray" }}>🔍</span>
                 </div>
 
                 {/* Icons */}
@@ -340,8 +335,8 @@ export const NavigationBar = ({ products }) => {
                                 onClick={isCart ? () => setOpenCart(true) : undefined}
                                 style={{
                                     position: "relative",
-                                    width: "60px",
-                                    height: "60px",
+                                    width: "40px",
+                                    height: "40px",
                                     borderRadius: "50%",
                                     border: "1.5px solid white",
                                     color: "white",
@@ -351,7 +346,7 @@ export const NavigationBar = ({ products }) => {
                                     cursor: isCart ? "pointer" : "default",
                                 }}
                             >
-                                <span style={{ fontSize: "21px" }}>
+                                <span style={{ fontSize: "17px" }}>
                                     {item.icon}
                                 </span>
 
