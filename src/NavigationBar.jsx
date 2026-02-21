@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import  {  useLayoutEffect } from "react";
 import "./App.css";
 import {
     FaHeart,
@@ -32,6 +33,7 @@ export const NavigationBar = ({ products }) => {
         0
     );
 
+    
     // Detect screen resize
     useEffect(() => {
         const handleResize = () => {
@@ -100,17 +102,25 @@ export const NavigationBar = ({ products }) => {
     }, []);
 
     //Prevent Background Scroll (Important)
-    useEffect(() => {
-        if (profileOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "auto";
-        }
+useLayoutEffect(() => {
+  const isDrawerOpen = mobileMenuOpen || profileOpen;
 
-        return () => {
-            document.body.style.overflow = "auto";
-        };
-    }, [profileOpen]);
+  if (!isDrawerOpen) return;
+
+  // Store original values
+  const originalBodyOverflow = window.getComputedStyle(document.body).overflow;
+  const originalHtmlOverflow = window.getComputedStyle(document.documentElement).overflow;
+
+  // Lock scroll
+  document.body.style.overflow = "hidden";
+  document.documentElement.style.overflow = "hidden";
+
+  return () => {
+    // Restore original values
+    document.body.style.overflow = originalBodyOverflow;
+    document.documentElement.style.overflow = originalHtmlOverflow;
+  };
+}, [mobileMenuOpen, profileOpen]);
 
     const popupStyle = {
         position: "absolute",

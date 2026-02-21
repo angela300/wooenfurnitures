@@ -150,6 +150,12 @@ input {
   font-size: 17px;
 }
 
+body.drawer-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
 
 
 @media only screen and (max-width: 768px) {

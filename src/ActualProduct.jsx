@@ -1,4 +1,5 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
+import  {  useLayoutEffect } from "react";
 import { useState } from "react";
 import { FaHeart, FaExchangeAlt, FaEye } from "react-icons/fa";
 import { PiMedalBold } from "react-icons/pi";
@@ -325,6 +326,27 @@ const handleAddToCart = () => {
 
   setCartOpen(true); // 🔥 Open slider
 };
+
+    //Prevent Background Scroll (Important)
+useLayoutEffect(() => {
+  const isDrawerOpen = mobileMenuOpen;
+
+  if (!isDrawerOpen) return;
+
+  // Store original values
+  const originalBodyOverflow = window.getComputedStyle(document.body).overflow;
+  const originalHtmlOverflow = window.getComputedStyle(document.documentElement).overflow;
+
+  // Lock scroll
+  document.body.style.overflow = "hidden";
+  document.documentElement.style.overflow = "hidden";
+
+  return () => {
+    // Restore original values
+    document.body.style.overflow = originalBodyOverflow;
+    document.documentElement.style.overflow = originalHtmlOverflow;
+  };
+}, [mobileMenuOpen]);
 
   // Detect screen resize
   useEffect(() => {

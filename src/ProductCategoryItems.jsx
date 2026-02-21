@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import  {  useLayoutEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./productCategoryItems.css";
 import { FaThLarge, FaTh, FaThList } from "react-icons/fa";
@@ -317,6 +318,27 @@ export const ProductCategoryItems = () => {
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+
+        //Prevent Background Scroll (Important)
+    useLayoutEffect(() => {
+      const isDrawerOpen = mobileMenuOpen;
+    
+      if (!isDrawerOpen) return;
+    
+      // Store original values
+      const originalBodyOverflow = window.getComputedStyle(document.body).overflow;
+      const originalHtmlOverflow = window.getComputedStyle(document.documentElement).overflow;
+    
+      // Lock scroll
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    
+      return () => {
+        // Restore original values
+        document.body.style.overflow = originalBodyOverflow;
+        document.documentElement.style.overflow = originalHtmlOverflow;
+      };
+    }, [mobileMenuOpen]);
 
     const topRatedProducts = allProducts
         .filter((p) => p.rating && p.rating >= 4)
