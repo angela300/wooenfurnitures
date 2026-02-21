@@ -256,3 +256,35 @@
   color: #f5b301; /* filled star */
 }
 
+.whatsappBtnQview {
+    background: #25d366;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.addcartBtnQview {
+    background: #66b32e;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: none;
+    font-size: 13px;
+    border-radius: 0;
+}
+
+.buyBtnQview {
+    background: #1d4fa3;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 13px;
+    border-radius: 0;
+}
+

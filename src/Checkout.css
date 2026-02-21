@@ -43,6 +43,7 @@
   font-weight: 600;
   font-size: 16px;
   transition: 0.2s ease;
+  border-radius: 0;
 }
 
 .place-order-btn:hover {
@@ -78,4 +79,12 @@
   font-weight: bold;
   display: flex;
   justify-content: space-between;
+}
+
+.LightFontBoldCheck{
+    font-family: 'Nunito', sans-serif;
+  font-weight: 900; /* This will now work */
+  font-size: 20px;
+  color: white;
+   -webkit-text-stroke: 0.3 white; 
 }

@@ -58,6 +58,8 @@
     margin-bottom: 15px;
     cursor: pointer;
     font-weight: 600;
+    border-radius: 0;
+    font-size: 14px;
 }
 
 .qty-cart {
@@ -87,6 +89,8 @@
     border: none;
     padding: 12px 20px;
     cursor: pointer;
+    border-radius: 0;
+    font-size: 14px;
 }
 
 .buy-now {
@@ -95,6 +99,8 @@
     border: none;
     padding: 12px 20px;
     cursor: pointer;
+    border-radius: 0;
+    font-size: 14px;
 }
 
 .ap-links {

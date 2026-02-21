@@ -102,22 +102,22 @@ export const ProductCategoryItems = () => {
             <div className="pci-inner">
                 {/* LEFT SIDEBAR */}
                 <aside className="pci-side" >
-                    <h4 className="LightFontBig">Filter by price</h4>
+                    <h4 className="LightFontBold">Filter by price</h4>
                     <div className="pci-sliderBar" style={{ marginTop: "40px" }} />
                     <div className="pci-priceRow">
-                        <p style={{ fontSize: "22px", paddingTop: "30px", marginBottom: "30px" }}>
+                        <p style={{ fontSize: "15px", paddingTop: "30px", marginBottom: "30px" }}>
                             Price: <b>KSh {minPrice.toLocaleString("en-KE")}</b> —{" "}
                             <b>KSh {maxPrice.toLocaleString("en-KE")}</b>
                         </p>
                     </div>
 
-                    <button className="pci-filterBtn"><p className="LightFontBig" style={{ fontSize: "16px" }}>FILTER</p></button>
+                    <button className="pci-filterBtn"><p className="LightFontBold" style={{ fontSize: "13px" }}>FILTER</p></button>
 
                     <div className="pci-divider" />
                     <div className="sidebar-wrap">
                         {/* Stock Status */}
                         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                            <p className="LightFontBig">Stock status</p>
+                            <p className="LightFontBold">Stock status</p>
                             <label>
                                 <input
                                     type="checkbox"
@@ -141,14 +141,14 @@ export const ProductCategoryItems = () => {
 
                         {/* Top Rated Products */}
                         <div className="top-rated">
-                            <p className="LightFontBig" style={{ marginBottom: "30px" }}>Top rated products</p>
+                            <p className="LightFontBold" style={{ marginBottom: "30px" }}>Top rated products</p>
 
                             {allProducts.map((product) => (
                                 <div>
                                     <div key={product.id} className="top-product">
                                         <img src={product.img} alt={product.title} />
                                         <div className="product-info">
-                                            <p className="LightFontBig">{product.title}</p>
+                                            <p className="LightFontBold">{product.title}</p>
 
                                             <div className="stars">
                                                 {[...Array(5)].map((_, i) => (
@@ -186,14 +186,14 @@ export const ProductCategoryItems = () => {
                             {subLabel && (
                                 <>
                                     <span>/</span>
-                                    <b className="LightFontBig">{subLabel}</b>
+                                    <b className="LightFontBold">{subLabel}</b>
                                 </>
                             )}
                         </div>
 
                         <div className="pci-tools">
                             <div className="pci-show">
-                                <span className="LightFontBig">Show :</span>
+                                <span className="LightFontBold">Show :</span>
                                 <span className="LightFont">9</span>
                                 <span className="LightFont">12</span>
                                 <span className="LightFont">18</span>
@@ -201,12 +201,12 @@ export const ProductCategoryItems = () => {
                             </div>
 
                             <div className="pci-viewIcons">
-                                <FaThLarge size={30} />
-                                <FaTh size={30} />
-                                <FaThList size={30} />
+                                <FaThLarge size={25} />
+                                <FaTh size={25} />
+                                <FaThList size={25} />
                             </div>
 
-                            <p className="LightFontBig">Default Sorting</p>
+                            <p className="LightFontBold">Default Sorting</p>
 
                             <div style={{ position: "relative" }}>
                                 <div
@@ -254,7 +254,7 @@ export const ProductCategoryItems = () => {
                                         <img src={p.img} alt={p.title} className="ri2-img" />
                                     </Link>
                                     <div className="ri2-body">
-                                        <p className="ri2-name">{p.title}</p>
+                                        <p className="LightFontBold">{p.title}</p>
                                         {/* ⭐ Stars */}
                                         <div className="ri2-stars" aria-label={`${rating} out of 5 stars`}>
                                             {Array.from({ length: 5 }).map((_, i) => (
@@ -269,7 +269,7 @@ export const ProductCategoryItems = () => {
 
                                         <div className="ri2-stockRow">
                                             <span className="ri2-check">✓</span>
-                                            <p className="check_stock">In stock</p>
+                                            <p className="LightFontBold">In stock</p>
                                         </div>
 
                                         <div className="ri2-priceRow">

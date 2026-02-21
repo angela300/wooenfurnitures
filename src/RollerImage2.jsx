@@ -9,6 +9,7 @@ import { useWish } from "./WishContext";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
 import {FaEye } from "react-icons/fa";
+import "./App.css"
 
 export const RollerImage2 = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -177,13 +178,11 @@ export const RollerImage2 = () => {
                       right: "25px",
                       top: "25px",
                       background: "#eee",
-                      padding: "10px",
                       zIndex: 1005,
-                      width: "80px",
-                      height: "200px",
-                      padding: "30px",
-                      paddingTop: 20,
-                      paddingBottom: 20,
+                      width: "50px",
+                      height: "130px",
+                      paddingTop: 15,
+                      paddingBottom: 15,
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "space-between",
@@ -201,11 +200,11 @@ export const RollerImage2 = () => {
                       style={{ cursor: "pointer" }}
                     >
                       <FaExchangeAlt
-                        size={30}
+                        size={20}
                         color={isInCompare(p.title) ? "green" : "grey"}
                       />
                     </div>
-                    <CiSearch size={30} color="grey"   style={{ cursor: "pointer" }}
+                    <CiSearch size={20} color="grey"   style={{ cursor: "pointer" }}
   onClick={() => setSelectedProduct(p)}/>
 
                     <div onClick={() => {
@@ -215,7 +214,7 @@ export const RollerImage2 = () => {
                         addToWish(p);
                       }
                     }}
-                      style={{ cursor: "pointer" }}><FaHeart size={30} color={isInWish(p.title) ? "green" : "grey"} /></div>
+                      style={{ cursor: "pointer" }}><FaHeart size={20} color={isInWish(p.title) ? "green" : "grey"} /></div>
                   </div>)}
 
                   {selectedProduct && (
@@ -267,14 +266,9 @@ export const RollerImage2 = () => {
 
       {/* Details */}
       <div style={{ flex: 1 }}>
-        <h2>{selectedProduct.title}</h2>
-
-        <p style={{ fontSize: "20px", fontWeight: "bold" }}>
-          KSh {selectedProduct.newPrice}
-        </p>
 
                 <div className="ap-right">
-                  <h1>{selectedProduct.title}</h1>
+                  <p className="LightFontBold">{selectedProduct.title}</p>
         
                   <div className="ap-price">
                     <span className="ap-old">
@@ -290,7 +284,7 @@ export const RollerImage2 = () => {
         
                     {/* WhatsApp */}
                     <button
-                      className="whatsapp-btn"
+                      className="whatsappBtnQview"
                       style={{borderRadius:0}}
                       onClick={() =>
                         window.open(
@@ -312,14 +306,14 @@ export const RollerImage2 = () => {
                       </div>
         
                       <button
-                        className="add-cart"
+                        className="addcartBtnQview"
                         onClick={handleAddToCart}
                       >
                         ADD TO CART
                       </button>
         
                       <button
-                        className="buy-now"
+                        className="buyBtnQview"
                         onClick={() => {
                           handleAddToCart();
                           navigate("/checkout");

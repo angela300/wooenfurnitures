@@ -21,7 +21,9 @@ export const RollerImage5 = () => {
 
           {/* LEFT SECTION */}
           <div className="ri5-col ri5-about">
-            <img src={wfun} alt="Liberty Furniture" className="ri5-logo" />
+            <div style={{backgroundColor:"white", width:"200px", height:"115px", display:"flex", flexDirectioon:"row", justifyContent:"center", alignItems:"center", paddingTop:"15px"}}>
+              <img src={wfun} alt="Liberty Furniture" className="ri5-logo" />
+            </div>
 
             <p className="LightFontFoot ri5-paragraph">
               Liberty Furniture has been manufacturing and trading for more than
@@ -73,34 +75,34 @@ export const RollerImage5 = () => {
             <p className="LightFontBigFoot ri5-socialTitle">Social Links:</p>
 
             <div className="ri5-social">
-              <div className="social-icon fb"><FaFacebookF size={20} /></div>
-              <div className="social-icon tw"><FaTwitter size={20} /></div>
-              <div className="social-icon pin"><FaPinterestP size={20} /></div>
-              <div className="social-icon li"><FaLinkedinIn size={20} /></div>
-              <div className="social-icon tg"><FaTelegramPlane size={20} /></div>
+              <div className="social-icon fb"><FaFacebookF size={15} /></div>
+              <div className="social-icon tw"><FaTwitter size={15} /></div>
+              <div className="social-icon pin"><FaPinterestP size={15} /></div>
+              <div className="social-icon li"><FaLinkedinIn size={15} /></div>
+              <div className="social-icon tg"><FaTelegramPlane size={15} /></div>
             </div>
           </div>
 
         </div>
 
-          <div className="footer-bottom-inner">
-<p style={{fontSize:"22px"}}>
-  Based on{" "}
-  <span className="footer-heavy">
-    LIBERTY FURNITURE
-  </span>{" "}
-  2023{" "}
-  <span className="footer-heavy">
-    FURNITURE STORE IN KENYA
-  </span>.
-</p>
-<div className="footer-payments">
-  <FaCcVisa className="payment-icon" />
-  <FaCcMastercard className="payment-icon" />
-  <FaCcPaypal className="payment-icon" />
-  <FaCcAmex className="payment-icon" />
-  <FaCcVisa className="payment-icon" /> {/* Visa Electron substitute */}
-</div>
+        <div className="footer-bottom-inner">
+          <p style={{ fontSize: "16px" }}>
+            Based on{" "}
+            <span className="footer-heavy">
+              LIBERTY FURNITURE
+            </span>{" "}
+            2023{" "}
+            <span className="footer-heavy">
+              FURNITURE STORE IN KENYA
+            </span>.
+          </p>
+          <div className="footer-payments">
+            <FaCcVisa className="payment-icon" />
+            <FaCcMastercard className="payment-icon" />
+            <FaCcPaypal className="payment-icon" />
+            <FaCcAmex className="payment-icon" />
+            <FaCcVisa className="payment-icon" /> {/* Visa Electron substitute */}
+          </div>
 
 
         </div>

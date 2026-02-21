@@ -58,7 +58,7 @@ export const TrackOrder = () => {
                 <form onSubmit={handleTrack}>
                     <div style={{ display: "flex", flexDirection: "row", gap: "20px", alignItems: "flex-end" }}>
                         <div className="input-group">
-                            <p className="LightFont" style={{ color: "black", fontSize: "22px" }}>Order ID</p>
+                            <p className="LightFont" style={{ color: "black" }}>Order ID</p>
                             <input
                                 type="text"
                                 placeholder="Enter Order ID (e.g. FS12345)"
@@ -68,7 +68,7 @@ export const TrackOrder = () => {
                         </div>
 
                         <div className="input-group">
-                            <p className="LightFont" style={{ color: "black", fontSize: "22px" }}>Email Address</p>
+                            <p className="LightFont" style={{ color: "black"}}>Email Address</p>
                             <input
                                 type="email"
                                 placeholder="Enter your email"
@@ -97,13 +97,13 @@ export const TrackOrder = () => {
                 <div className="shipping-wrap">
       {/* LEFT COLUMN */}
       <div className="shipping-left">
-        <p className="LightFontBig" style={{fontSize:"30px", marginBottom:"30px"}}>Ship package</p>
+        <p className="LightFontBigger" style={{marginBottom:"30px"}}>Ship package</p>
 
         <div className="ship-item">
           <FaUndoAlt className="ship-icon" />
           <div>
-            <p className="LightFontBig" style={{fontSize:"24px"}}>14 Days Return Period</p>
-            <p className="LightFont" style={{fontSize:"24px"}}>
+            <p className="LightFontBold" style={{fontSize:"17px"}}>14 Days Return Period</p>
+            <p className="LightFont">
               Etiam proin phasellus a hac sociis condimentum adipiscing tempor
             </p>
           </div>
@@ -112,8 +112,8 @@ export const TrackOrder = () => {
         <div className="ship-item">
           <FaTruck className="ship-icon" />
           <div>
-            <p className="LightFontBig">Flexible Shipping</p>
-            <p className="LightFont" style={{fontSize:"24px"}}>
+            <p className="LightFontBold" style={{fontSize:"17px"}}>Flexible Shipping</p>
+            <p className="LightFont">
               Etiam proin phasellus a hac sociis condimentum adipiscing tempor
             </p>
           </div>
@@ -122,8 +122,8 @@ export const TrackOrder = () => {
         <div className="ship-item">
           <FaCreditCard className="ship-icon" />
           <div>
-            <p className="LightFontBig">Payment Methods</p>
-            <p className="LightFont" style={{fontSize:"24px"}}>
+            <p className="LightFontBold" style={{fontSize:"17px"}}>Payment Methods</p>
+            <p className="LightFont">
               Etiam proin phasellus a hac sociis condimentum adipiscing tempor
             </p>
           </div>
@@ -153,12 +153,12 @@ export const TrackOrder = () => {
 
       {/* RIGHT COLUMN */}
       <div className="shipping-right">
-        <p className="LightFontBig">
+        <p className="LightFontBigger">
           Get answers to all your <br />
           questions you might have
         </p>
 
-        <p className="LightFont" style={{fontSize:"24px"}}>
+        <p className="LightFont">
           We will answer any questions you may have about our online sales
           right here. Monday to Friday from 09:00 to 21:00 UTC +2
         </p>
@@ -166,11 +166,11 @@ export const TrackOrder = () => {
         <button className="contact-btn">CONTACT OUR COMPANY</button>
 
         <div className="social-icons">
-          <FaFacebookF />
-          <FaXTwitter />
-          <FaPinterestP />
-          <FaLinkedinIn />
-          <FaTelegramPlane />
+          <FaFacebookF size={32}/>
+          <FaXTwitter size={32}/>
+          <FaPinterestP size={32}/>
+          <FaLinkedinIn size={32}/>
+          <FaTelegramPlane size={32}/>
         </div>
       </div>
     </div>

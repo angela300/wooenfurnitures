@@ -1,7 +1,6 @@
 import "./MyAccount.css";
 import "./App.css";
 import { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const MyAccount = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -33,13 +32,13 @@ export const MyAccount = () => {
                 {!showRegister ? (
                     /* LOGIN (DEFAULT LEFT) */
                     <div style={{ maxWidth: "800px" }} className="login">
-                        <p className="LightFontVeryBig" style={{ color: "#448EE4" }}>
+                        <p className="LightFontVeryBig" style={{ color: "#448EE4", paddingLeft:"88px" }}>
                             Login
                         </p>
 
-                        <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "30px",alignItems:"center", width:"600px" }}>
 
-                            <div>
+                            <div style={{width:"420px"}}>
                                 <p className="LightFont" style={{ color: "black" }}>
                                     Username or email address{" "}
                                     <span style={{ color: "red" }}>*</span>
@@ -47,8 +46,8 @@ export const MyAccount = () => {
                                 <input
                                     type="text"
                                     style={{
-                                        width: "600px",
-                                        height: "60px",
+                                        width: "400px",
+                                        height: "40px",
                                         backgroundColor: "#f6f6f6",
                                         borderRadius: "2px",
                                         border: 0,
@@ -59,7 +58,7 @@ export const MyAccount = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div style={{ width:"420px"}}>
                                 <p className="LightFont" style={{ color: "black" }}>
                                     Password <span style={{ color: "red" }}>*</span>
                                 </p>
@@ -74,8 +73,8 @@ export const MyAccount = () => {
                                     <input
                                         type={showPassword ? "text" : "password"}
                                         style={{
-                                            width: "100%",
-                                            height: "60px",
+                                                  width: "400px",
+                                        height: "40px",
                                             backgroundColor: "#f6f6f6",
                                             borderRadius: "2px",
                                             border: 0,
@@ -97,11 +96,6 @@ export const MyAccount = () => {
                                             color: "#777"
                                         }}
                                     >
-                                        {showPassword ? (
-                                            <FaEyeSlash size={20} />
-                                        ) : (
-                                            <FaEye size={20} />
-                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -109,13 +103,14 @@ export const MyAccount = () => {
                             <button
                                 onClick={() => setShowRegister(false)}
                                 style={{
-                                    width: "600px",
-                                    height: "60px",
+                                    width: "400px",
+                                    height: "40px",
                                     backgroundColor: "blue",
                                     borderRadius: 0,
                                     color: "white",
                                     border: "none",
-                                    cursor: "pointer"
+                                    cursor: "pointer",
+                                    fontSize:"14px"
                                 }}
                             >
                                 LOG IN
@@ -126,20 +121,20 @@ export const MyAccount = () => {
                 ) : (
                     /* REGISTER (WHEN TOGGLED LEFT) */
                     <div style={{ maxWidth: "800px" }} className="register">
-                        <p className="LightFontVeryBig" style={{ color: "#448EE4" }}>
+                        <p className="LightFontVeryBig" style={{ color: "#448EE4", paddingLeft:"180px"}}>
                             Register
                         </p>
 
-                        <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
-                            <div>
+                        <div style={{ display:"flex", flexDirection: "column", gap: "30px",alignItems:"flex-end", width:"600px", marginTop:"20px"}}>
+                            <div style={{width:"420px", display:"flex", flexDirection: "column", gap: "10px",}}>
                                 <p className="LightFont" style={{ color: "black" }}>
                                     Email address <span style={{ color: "red" }}>*</span>
                                 </p>
                                 <input
                                     type="text"
                                     style={{
-                                        width: "600px",
-                                        height: "60px",
+                                 width: "400px",
+                                        height: "40px",
                                         backgroundColor: "#f6f6f6",
                                         borderRadius: "2px",
                                         border: 0,
@@ -148,21 +143,23 @@ export const MyAccount = () => {
                                         marginTop: "5px"
                                     }}
                                 />
-                            </div>
-                            <button
+                                                            <button
                                 onClick={() => setShowRegister(false)}
                                 style={{
-                                    width: "600px",
-                                    height: "60px",
+                                            width: "400px",
+                                    height: "40px",
                                     backgroundColor: "blue",
                                     borderRadius: 0,
                                     color: "white",
                                     border: "none",
-                                    cursor: "pointer"
+                                    cursor: "pointer",
+                                    fontSize:"14px"
                                 }}
                             >
                                 REGISTER
                             </button>
+                            </div>
+
                         </div>
                     </div>
                 )}
@@ -172,7 +169,7 @@ export const MyAccount = () => {
                     style={{
                         width: "1px",
                         backgroundColor: "#dcdcdc",
-                        minHeight: "500px"
+                        height: "320px"
                     }}
                 />
 
@@ -183,10 +180,11 @@ export const MyAccount = () => {
                         style={{
                             maxWidth: "800px",
                             padding: "100px",
-                            paddingLeft: "30px",
+                            paddingLeft: "10px",
                             paddingTop: "0px",
                             display: "flex",
                             flexDirection: "column",
+                            alignItems:"center",
                             gap: "30px"
                         }}
                         className="oldReg"
@@ -214,11 +212,14 @@ export const MyAccount = () => {
                                 cursor: "pointer",
                                 outline: "none",        // removes outline
                                 boxShadow: "none",
+
+                                                                            width: "120px",
+                                    height: "40px",
                             }}
                         >
                             <p
                                 className="LightFontBig"
-                                style={{ fontSize: "18px", margin: 0 }}
+                                style={{ fontSize: "14px", margin: 0 }}
                             >
                                 REGISTER
                             </p>
@@ -226,7 +227,7 @@ export const MyAccount = () => {
                     </div>
                 ) : (
                     /* LOGIN MOVES TO RIGHT WHEN REGISTER ACTIVE */
-                    <div style={{ maxWidth: "800px" }} className="login">
+                    <div style={{ maxWidth: "800px", display:"flex", flexDirection:"column", gap:"30px" }} className="login">
                         <p className="LightFontVeryBig" style={{ color: "#448EE4" }}>
                             Register
                         </p>
@@ -239,7 +240,7 @@ export const MyAccount = () => {
                             onClick={() => setShowRegister(false)}
                             onMouseDown={(e) => e.preventDefault()}  // prevents focus ring
                             style={{
-                                width: "300px",
+                            width: "300px",
                                 height: "60px",
                                 backgroundColor: "#f6f6f6",
                                 borderRadius: 0,
@@ -247,13 +248,15 @@ export const MyAccount = () => {
                                 border: "none",
                                 cursor: "pointer",
                                 outline: "none",        // removes outline
-                                boxShadow: "none",       // removes any shadow focus style
-                                marginTop: "30px"
+                                boxShadow: "none",
+
+                                                                            width: "120px",
+                                    height: "40px",
                             }}
                         >
                             <p
                                 className="LightFontBig"
-                                style={{ fontSize: "18px", margin: 0 }}
+                                style={{ fontSize: "14px", margin: 0 }}
                             >
                                 LOGIN
                             </p>

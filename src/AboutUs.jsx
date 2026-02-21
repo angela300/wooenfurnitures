@@ -6,7 +6,7 @@ export const AboutUs = () => {
 
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start"}}>
-            <div style={{ maxWidth: "800px", padding: "100px", paddingLeft:"30px", display: "flex", flexDirection: "column", gap: "30px", alignItems: "flex-start" }}>
+            <div style={{ width: "650px", padding: "100px", paddingLeft:"30px", display: "flex", flexDirection: "column", gap: "25px", alignItems: "flex-start" }}>
                 <p className="LightFontVeryBig" style={{ color: "#448EE4" }}>About Us</p>
                 <p className="LightFont">Liberty furniture has established itself in 
                     the market place as a leading furniture store in providing top quality and trend design furniture. We believe in the liberty way, setting high 

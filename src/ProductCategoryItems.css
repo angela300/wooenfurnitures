@@ -76,7 +76,7 @@ width: 100%;
 }
 
 .pci-filterBtn {
-  height: 55px;
+  height: 40px;
   width: 100px;
   border: none;
   background: #f3f3f3;
@@ -280,5 +280,18 @@ width: 100%;
   color: #e38b00;
   font-weight: 700;
   font-size: 16px;
+}
+
+.ri2-check {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background-color: #ff8a00;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 7px;
+  line-height: 7px;
 }
 

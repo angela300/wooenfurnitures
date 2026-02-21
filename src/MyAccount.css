@@ -19,7 +19,7 @@
 .LightFontBiggerMyAc {
   font-family: 'Nunito', sans-serif;
   font-weight: 900; /* This will now work */
-  font-size: 100px;
+  font-size: 60px;
   color: white;
    -webkit-text-stroke: 1px white; 
 }

@@ -27,7 +27,38 @@ export const Checkout = () => {
   };
 
   return (
-    <div className="checkout-container">
+    <div style={{width:"100%", display:"flex", flexDirection:"column"}}>
+      <div
+  style={{
+    width: "100%",
+    backgroundColor: "#365fb5",
+   
+    boxSizing: "border-box",
+    textAlign: "center",
+    color: "white"
+  }}
+>
+  {/* Title */}
+<div
+  style={{
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "10px",
+    fontSize: "18px",
+    fontWeight: "500",
+    height:"180px"
+  }}
+>
+  <span className="LightFontBoldCheck" style={{color:"white"}}>SHOPPING CART</span>
+  <span style={{ color: "#999" }} className="LightFontBoldCheck">→</span>
+  <span className="LightFontBoldCheck" style={{color:"white"}}>CHECKOUT</span>
+  <span style={{ color: "#999" }} className="LightFontBoldCheck">→</span>
+  <span className="LightFontBoldCheck" style={{color:"white"}}>ORDER COMPLETE</span>
+</div>
+</div>
+      <div className="checkout-container">
 
       {/* LEFT SIDE */}
       <div className="checkout-left">
@@ -75,5 +106,7 @@ export const Checkout = () => {
       </div>
 
     </div>
+    </div>
+    
   );
 };

@@ -97,7 +97,7 @@ export const ActualProduct = () => {
 
         {/* RIGHT CONTENT */}
         <div className="ap-right">
-          <h1>{product.title}</h1>
+          <p className="LightFontBold" style={{fontSize:"31px"}}>{product.title}</p>
 
           <div className="ap-price">
             <span className="ap-old">
@@ -166,41 +166,41 @@ export const ActualProduct = () => {
           {/* Extra Info */}
           <div className="below_ap_watch">
             <div>
-              <FaTruck size={50} color="lightgray" />
-              <p className="LightFontBig" style={{ fontSize: "20px" }}>
+              <FaTruck size={35} color="lightgray" />
+              <p className="LightFontBold">
                 Fast Shipping
               </p>
-              <p className="LightFont" style={{ fontSize: "20px" }}>
+              <p className="LightFont">
                 Carrier information
               </p>
             </div>
 
             <div>
-              <MdOutlineLocalConvenienceStore size={50} color="lightgray" />
-              <p className="LightFontBig" style={{ fontSize: "20px" }}>
+              <MdOutlineLocalConvenienceStore size={35} color="lightgray" />
+              <p className="LightFontBold">
                 20k products
               </p>
-              <p className="LightFont" style={{ fontSize: "20px" }}>
+              <p className="LightFont">
                 Payment methods
               </p>
             </div>
 
             <div>
-              <FaRocketchat size={50} color="lightgray" />
-              <p className="LightFontBig" style={{ fontSize: "20px" }}>
+              <FaRocketchat size={35} color="lightgray" />
+              <p className="LightFontBold">
                 24/7 Support
               </p>
-              <p className="LightFont" style={{ fontSize: "20px" }}>
+              <p className="LightFont">
                 Unlimited help desk
               </p>
             </div>
 
             <div>
-              <PiMedalBold size={50} color="lightgray" />
-              <p className="LightFontBig" style={{ fontSize: "20px" }}>
+              <PiMedalBold size={35} color="lightgray" />
+              <p className="LightFontBold">
                 2-day Delivery
               </p>
-              <p className="LightFont" style={{ fontSize: "20px" }}>
+              <p className="LightFont">
                 Track your orders
               </p>
             </div>

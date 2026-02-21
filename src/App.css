@@ -95,7 +95,7 @@ body {
 .LightFontVeryBig {
   /*  */
   font-weight: 700; /* This will now work */
-  font-size: 37px;
+  font-size: 31px;
   color: white;
 }
 

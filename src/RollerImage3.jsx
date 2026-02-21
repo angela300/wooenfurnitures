@@ -1,6 +1,7 @@
 import React from "react";
 import "./rollerimage3.css";
 import { FaTruck, FaLock, FaHeadset, FaUndo } from "react-icons/fa";
+import "./App.css"
 
 export const RollerImage3 = () => {
   const features = [
@@ -32,9 +33,9 @@ export const RollerImage3 = () => {
         {features.map((item, index) => (
           <div className="ri3-card" key={index}>
             <div className="ri3-icon">{item.icon}</div>
-            <div className="ri3-text">
-              <p className="ri3_t">{item.title}</p>
-              <p className="ri3_d">{item.desc}</p>
+            <div>
+              <p className="LightFontBold">{item.title}</p>
+              <p className="LightFont">{item.desc}</p>
             </div>
           </div>
         ))}
