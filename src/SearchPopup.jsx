@@ -70,7 +70,7 @@ const SearchPopup = ({ products = [], onClose }) => {
                   transition: "0.2s ease"
                 }}
               >
-                <p className="LightFontBigPop" style={{fontSize:"17px"}}>{item.toUpperCase()}</p>
+                <p className="LightFontBold" style={{fontSize:"12px"}}>{item.toUpperCase()}</p>
               </div>
             ))}
           </div>
