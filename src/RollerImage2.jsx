@@ -155,130 +155,166 @@ export const RollerImage2 = () => {
     <>
         <div className="ri2-section" >
 {isMobile ? (
-  <div className="ri2-inner">
-    <div className="ri2-headerRow">
-      <h2 className="LightFontBigger">Featured Products</h2>
-      <div className="ri2-tabs">
-        <span className="ri2-tab active">NEW</span>
-        <span className="ri2-tab">FEATURED</span>
-        <span className="ri2-tab">TOP SELLERS</span>
-      </div>
-    </div>
+<div className="ri2-inner">
+  <div
+    style={{
+      textAlign: "center",
+      marginBottom: "25px"
+    }}
+  >
+    <h2 className="LightFontBigger">Featured Products</h2>
 
-    <div className="ri2-grid">
-      {products.map((p, idx) => {
-        const rating = Math.max(0, Math.min(5, Number(p.rating || 0)));
-
-        return (
-          <div
-            key={`${p.title}-${idx}`}
-            className="ri2-card"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              alignItems: "center",
-              position: "relative"
-            }}
-          >
-            {/* ❤️ Fixed Wishlist Icon */}
-            <div
-              onClick={() => {
-                if (isInWish(p.title)) {
-                  navigate("/Wish");
-                } else {
-                  addToWish(p);
-                }
-              }}
-              style={{
-                position: "absolute",
-                top: "15px",
-                right: "15px",
-                background: "#fff",
-                width: "36px",
-                height: "36px",
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 3px 8px rgba(0,0,0,0.15)",
-                cursor: "pointer",
-                zIndex: 5
-              }}
-            >
-              <FaHeart
-                size={16}
-                color={isInWish(p.title) ? "green" : "#999"}
-              />
-            </div>
-
-            {/* Image */}
-            <Link to={`/product/${p.title}`}>
-              <img src={p.img} alt={p.title} className="ri2-img" />
-            </Link>
-
-            {/* Card Body */}
-            <div className="ri2-body">
-              <p className="LightFontBold">{p.title}</p>
-
-              {/* ⭐ Stars */}
-              <div
-                className="ri2-stars"
-                aria-label={`${rating} out of 5 stars`}
-              >
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <span
-                    key={i}
-                    className={`ri2-star ${i < rating ? "filled" : ""}`}
-                  >
-                    ★
-                  </span>
-                ))}
-              </div>
-
-              {/* Stock */}
-              <div className="ri2-stockRow">
-                <span className="ri2-check">✓</span>
-                <p className="LightFontBold">In stock</p>
-              </div>
-
-              {/* Price */}
-              <div className="ri2-priceRow">
-                <span className="ri2-oldPrice">
-                  KSh {p.oldPrice}
-                </span>
-                <span className="ri2-newPrice">
-                  KSh {p.newPrice}
-                </span>
-              </div>
-
-              {/* WhatsApp Button */}
-              <button className="ri2-btn">
-                <FaWhatsapp
-                  className="ri2-waIcon"
-                  size={15}
-                />
-                <p
-                  className="order_via_wasp"
-                  onClick={() =>
-                    window.open(
-                      `https://wa.me/254700025861?text=Hello%20I%20would%20like%20to%20order%20${encodeURIComponent(
-                        p.title
-                      )}`,
-                      "_blank"
-                    )
-                  }
-                  style={{ cursor: "pointer" }}
-                >
-                  ORDER VIA WHATSAPP
-                </p>
-              </button>
-            </div>
-          </div>
-        );
-      })}
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        gap: "20px",
+        marginTop: "10px",
+        fontSize: "13px",
+        fontWeight: 600
+      }}
+    >
+      <span style={{ borderBottom: "2px solid #000" }}>NEW</span>
+      <span>FEATURED</span>
+      <span>TOP SELLERS</span>
     </div>
   </div>
+
+  {/* Mobile Grid */}
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(2, 1fr)",
+      gap: "15px"
+    }}
+  >
+    {products.map((p, idx) => {
+      const rating = Math.max(0, Math.min(5, Number(p.rating || 0)));
+
+      return (
+        <div
+          key={`${p.title}-${idx}`}
+          style={{
+            background: "#fff",
+            padding: "12px",
+            boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
+            position: "relative",
+            display: "flex",
+            flexDirection: "column"
+          }}
+        >
+          {/* Wishlist */}
+          <div
+            onClick={() => {
+              if (isInWish(p.title)) {
+                navigate("/Wish");
+              } else {
+                addToWish(p);
+              }
+            }}
+            style={{
+              position: "absolute",
+              top: "10px",
+              right: "10px",
+              background: "#fff",
+              width: "30px",
+              height: "30px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
+              cursor: "pointer"
+            }}
+          >
+            <FaHeart
+              size={14}
+              color={isInWish(p.title) ? "green" : "#999"}
+            />
+          </div>
+
+          <Link to={`/product/${p.title}`}>
+            <img
+              src={p.img}
+              alt={p.title}
+              style={{
+                width: "100%",
+                height: "140px",
+                objectFit: "cover"
+              }}
+            />
+          </Link>
+
+          <div style={{ marginTop: "10px" }}>
+            <p
+              style={{
+                fontSize: "13px",
+                fontWeight: 600,
+                marginBottom: "6px"
+              }}
+            >
+              {p.title}
+            </p>
+
+            {/* Stars */}
+            <div style={{ fontSize: "12px", color: "#f5a623" }}>
+              {"★".repeat(rating)}
+              {"☆".repeat(5 - rating)}
+            </div>
+
+            {/* Price */}
+            <div
+              style={{
+                marginTop: "6px",
+                fontSize: "13px",
+                display: "flex",
+                gap: "8px"
+              }}
+            >
+              <span style={{ textDecoration: "line-through", color: "#999" }}>
+                {formatKsh(p.oldPrice)}
+              </span>
+              <span style={{ fontWeight: 600 }}>
+                {formatKsh(p.newPrice)}
+              </span>
+            </div>
+
+            {/* WhatsApp */}
+<button
+  style={{
+    marginTop: "10px",
+    width: "100%",
+    padding: "12px",
+    paddingTop:"3px",
+       paddingBottom:"3px",
+    background: "#25D366",
+    color: "white",
+    border: "none",
+    fontSize: "12px",
+    fontWeight: 600,
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "8px", borderRadius:0
+  }}
+  onClick={() =>
+    window.open(
+      `https://wa.me/254700025861?text=Hello%20I%20would%20like%20to%20order%20${encodeURIComponent(
+        p.title
+      )}`,
+      "_blank"
+    )
+  }
+>
+  <FaWhatsapp size={18} style={{ marginTop: "1px" }} />
+  ORDER VIA WHATSAPP
+</button>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>
 ) :(
         <div className="ri2-inner">
         <div className="ri2-headerRow">

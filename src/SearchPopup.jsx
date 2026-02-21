@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./SearchPopup.css";
 import "./RollerImage1.css";
 
 const SearchPopup = ({ products = [], onClose }) => {
   const [query, setQuery] = useState("");
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const popularRequests = [
     "bed",
@@ -13,13 +14,23 @@ const SearchPopup = ({ products = [], onClose }) => {
     "materials"
   ];
 
-  // Only filter if user typed something
+  // Detect screen resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Filter only when user types
   const filteredProducts =
     query.trim() === ""
       ? []
-      : products.filter((product) =>
-          product.title.toLowerCase().includes(query.toLowerCase()) ||
-          product.category.toLowerCase().includes(query.toLowerCase())
+      : products.filter(
+          (product) =>
+            product.title.toLowerCase().includes(query.toLowerCase()) ||
+            product.category.toLowerCase().includes(query.toLowerCase())
         );
 
   return (
@@ -70,27 +81,68 @@ const SearchPopup = ({ products = [], onClose }) => {
                   transition: "0.2s ease"
                 }}
               >
-                <p className="LightFontBold" style={{fontSize:"12px"}}>{item.toUpperCase()}</p>
+                <p
+                  className="LightFontBold"
+                  style={{ fontSize: "12px" }}
+                >
+                  {item.toUpperCase()}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Show grid ONLY when user typed something */}
+        {/* Results Grid */}
         {query.trim() !== "" && (
-          <div className="roller-grid" style={{ marginTop: "30px" }}>
+          <div
+            className={!isMobile ? "roller-grid" : ""}
+            style={
+              isMobile
+                ? {
+                    marginTop: "30px",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(2, 1fr)",
+                    gap: "15px"
+                  }
+                : { marginTop: "30px" }
+            }
+          >
             {filteredProducts.length > 0 ? (
               filteredProducts.map((c) => (
                 <div
-                  className="roller-card"
                   key={c.title}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between"
-                  }}
+                  className={!isMobile ? "roller-card" : ""}
+                  style={
+                    isMobile
+                      ? {
+                          background: "#fff",
+                          padding: "10px",
+                          display: "flex",
+                          flexDirection: "column",
+                          boxShadow:
+                            "0 2px 6px rgba(0,0,0,0.05)"
+                        }
+                      : {
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "space-between"
+                        }
+                  }
                 >
-                  <img src={c.img} alt={c.title} />
+                  <img
+                    src={c.img}
+                    alt={c.title}
+                    style={
+                      isMobile
+                        ? {
+                            width: "100%",
+                            height: "120px",
+                            objectFit: "cover"
+                          }
+                        : {}
+                    }
+                  />
+
                   <div
                     style={{
                       height: "100px",
@@ -99,17 +151,22 @@ const SearchPopup = ({ products = [], onClose }) => {
                       justifyContent: "flex-end"
                     }}
                   >
-                    <p className="roller-card-title">{c.title}</p>
-                    <p className="LightFont">{c.count} products</p>
+                    <p className="roller-card-title">
+                      {c.title}
+                    </p>
+                    <p className="LightFont">
+                      {c.count} products
+                    </p>
                   </div>
                 </div>
               ))
             ) : (
-              <p style={{ marginTop: "20px" }}>No products found</p>
+              <p style={{ marginTop: "20px" }}>
+                No products found
+              </p>
             )}
           </div>
         )}
-
       </div>
     </div>
   );

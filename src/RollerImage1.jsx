@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./rollerimage1.css";
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const RollerImage1 = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const categories = [
     {
       title: "L-Shaped Sofas",
@@ -34,7 +44,6 @@ export const RollerImage1 = () => {
       count: 15,
       img: "https://images.unsplash.com/photo-1598300056393-4aac492f4344?w=800",
     },
-
     {
       title: "Semi-Recliner Sofas",
       count: 11,
@@ -60,31 +69,76 @@ export const RollerImage1 = () => {
       count: 28,
       img: "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800",
     },
-
-    // ✅ Added 3 More
     {
       title: "Office Chairs",
       count: 19,
       img: "https://images.unsplash.com/photo-1588854337115-1c67d9247e4d?w=800",
     },
-
   ];
 
   return (
     <div className="roller-wrapper">
       <div className="roller-container">
-        <p className="LightFontBigger" style={{marginBottom:"30px"}}><strong>Popular Categories</strong></p>
-        <div className="roller-grid">
-          {categories.map((c) => (
-            <div className="roller-card" key={c.title} style={{ display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
-                                                  <Link to={`/product/${c.title}`}>
-                                        <img src={c.img} alt={c.title}/>
-                                    </Link>
-              <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-                <p className="roller-card-title">{c.title}</p>
-                <p className="LightFont" >{c.count} products</p>
-              </div>
+        <p
+          className="LightFontBigger"
+          style={{ marginBottom: "30px", textAlign: isMobile ? "center" : "left" }}
+        >
+          <strong>Popular Categories</strong>
+        </p>
 
+        <div
+          className={!isMobile ? "roller-grid" : ""}
+          style={
+            isMobile
+              ? {
+                  display: "grid",
+                  gridTemplateColumns: "repeat(2, 1fr)", // 2 per row on mobile
+                  gap: "15px",
+                }
+              : {}
+          }
+        >
+          {categories.map((c) => (
+            <div
+              key={c.title}
+              className={!isMobile ? "roller-card" : ""}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                background: isMobile ? "#fff" : "",
+                boxShadow: isMobile
+                  ? "0 2px 6px rgba(0,0,0,0.05)"
+                  : "",
+                padding: isMobile ? "10px" : "",
+              }}
+            >
+              <Link to={`/product/${c.title}`}>
+                <img
+                  src={c.img}
+                  alt={c.title}
+                  style={{
+                    width: "100%",
+                    height: isMobile ? "120px" : "",
+                    objectFit: "cover",
+                  }}
+                />
+              </Link>
+
+              <div style={{ marginTop: isMobile ? "10px" : "" }}>
+                <p
+                  className="roller-card-title"
+                  style={{ fontSize: isMobile ? "14px" : "" }}
+                >
+                  {c.title}
+                </p>
+                <p
+                  className="LightFont"
+                  style={{ fontSize: isMobile ? "12px" : "" }}
+                >
+                  {c.count} products
+                </p>
+              </div>
             </div>
           ))}
         </div>

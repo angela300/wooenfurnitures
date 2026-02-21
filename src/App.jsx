@@ -96,32 +96,32 @@ export default function App() {
         </>} />
         <Route path="/checkout" element={<>
                    <TopScreen />
-                    <NavigationBar />
+                    <NavigationBar  products={products}/>
                     <Checkout />      
                     <RollerImage4 />
                     <RollerImage5 /> </>} />
                             <Route path="/TrackOrder" element={<>
                    <TopScreen />
-                    <NavigationBar />
+                    <NavigationBar  products={products}/>
                     <TrackOrder />      
                     <RollerImage4 />
                     <RollerImage5 /> </>} />
                                                 <Route path="/MyAccount" element={<>
                    <TopScreen />
-                    <NavigationBar />
+                    <NavigationBar  products={products}/>
                     <MyAccount />      
                     <RollerImage4 />
                     <RollerImage5 /> </>} />
                                                 <Route path="/AboutUs" element={<>
                    <TopScreen />
-                    <NavigationBar />
+                    <NavigationBar  products={products}/>
                     <AboutUs />      
                     <RollerImage4 />
                     <RollerImage5 /> </>} />
 
                                                                     <Route path="/Compare" element={<>
                    <TopScreen />
-                    <NavigationBar />
+                    <NavigationBar  products={products}/>
                     <Compare />      
                     <RollerImage4 />
                     <RollerImage5 /> </>} />
@@ -129,7 +129,7 @@ export default function App() {
 
                                                                     <Route path="/Wish" element={<>
                    <TopScreen />
-                    <NavigationBar />
+                    <NavigationBar  products={products}/>
                     <Wish />      
                     <RollerImage4 />
                     <RollerImage5 /> </>} />

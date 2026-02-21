@@ -36,71 +36,135 @@ export const Checkout = () => {
   }, []);
 
   return (
-    <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: "100%" }}>
+
+      {/* ================= MOBILE ================= */}
       {isMobile ? (
-        /* ================= MOBILE ================= */
-        <>
+        <div
+          style={{
+            minHeight: "100vh",
+            overflowY: "auto",
+            backgroundColor: "#fafafa",
+          }}
+        >
           {/* Header */}
           <div
             style={{
-              width: "100%",
               backgroundColor: "#365fb5",
-              textAlign: "center",
               color: "white",
+              textAlign: "center",
               padding: "60px 20px",
-              boxSizing: "border-box",
+              fontWeight: "600",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "8px",
-                fontSize: "16px",
-                fontWeight: "500",
-              }}
-            >
-
-              <span>CHECKOUT</span>
-            </div>
+            CHECKOUT
           </div>
 
           {/* Content */}
-          <div style={{ padding: "20px" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              padding: "40px 20px",
+              gap: "50px",
+            }}
+          >
             {/* Billing */}
-            <div style={{ marginBottom: "40px" }}>
-              <h2>Billing Details</h2>
+            <div
+              style={{
+                width: "100%",
+                maxWidth: "400px",
+                backgroundColor: "white",
+                padding: "30px",
+                boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
+              }}
+            >
+              <h2 style={{ marginBottom: "25px" }}>
+                Billing Details
+              </h2>
 
               <div
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  gap: "15px",
-                  marginTop: "20px",
+                  gap: "18px",
                 }}
               >
-                <input name="firstName" placeholder="First Name" onChange={handleChange} />
-                <input name="lastName" placeholder="Last Name" onChange={handleChange} />
-                <input name="email" placeholder="Email Address" onChange={handleChange} />
-                <input name="phone" placeholder="Phone Number" onChange={handleChange} />
-                <input name="address" placeholder="Street Address" onChange={handleChange} />
-                <input name="city" placeholder="Town / City" onChange={handleChange} />
+                {[
+                  { label: "First Name", name: "firstName" },
+                  { label: "Last Name", name: "lastName" },
+                  { label: "Email Address", name: "email", type: "email" },
+                  { label: "Phone Number", name: "phone" },
+                  { label: "Street Address", name: "address" },
+                  { label: "Town / City", name: "city" },
+                ].map((field) => (
+                  <div key={field.name}>
+                    <label
+                      style={{
+                        display: "block",
+                        fontSize: "13px",
+                        marginBottom: "6px",
+                        fontWeight: "500",
+                      }}
+                    >
+                      {field.label} *
+                    </label>
+
+                    <input
+                      type={field.type || "text"}
+                      name={field.name}
+                      value={formData[field.name]}
+                      onChange={handleChange}
+                      style={{
+                        width: "100%",
+                        height: "46px",
+                        padding: "0 12px",
+                        backgroundColor: "#f4f5f7",
+                        border: "1px solid #ddd",
+                        borderRadius: "0",
+                        fontSize: "14px",
+                        boxSizing: "border-box",
+                        outline: "none",
+                      }}
+                    />
+                  </div>
+                ))}
               </div>
 
               <button
-                className="place-order-btn"
-                style={{ marginTop: "25px", width: "100%" }}
+                style={{
+                  marginTop: "30px",
+                  width: "100%",
+                  height: "46px",
+                  backgroundColor: "#365fb5",
+                  border: "none",
+                  borderRadius: "0",
+                  color: "white",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                }}
               >
                 PLACE ORDER
               </button>
             </div>
 
             {/* Order Summary */}
-            <div>
-              <h3>Your Order</h3>
+            <div
+              style={{
+                width: "100%",
+                maxWidth: "400px",
+                backgroundColor: "white",
+                padding: "30px",
+                boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
+              }}
+            >
+              <h3 style={{ marginBottom: "20px" }}>
+                Your Order
+              </h3>
 
               {cartItems.length === 0 ? (
-                <p style={{ marginTop: "20px" }}>Your cart is empty</p>
+                <p>Your cart is empty</p>
               ) : (
                 <>
                   {cartItems.map((item) => (
@@ -109,9 +173,10 @@ export const Checkout = () => {
                       style={{
                         display: "flex",
                         justifyContent: "space-between",
-                        marginBottom: "15px",
                         borderBottom: "1px solid #eee",
                         paddingBottom: "10px",
+                        marginBottom: "10px",
+                        fontSize: "14px",
                       }}
                     >
                       <span>
@@ -138,7 +203,7 @@ export const Checkout = () => {
               )}
             </div>
           </div>
-        </>
+        </div>
       ) : (
         /* ================= DESKTOP (UNCHANGED) ================= */
         <>
@@ -146,38 +211,24 @@ export const Checkout = () => {
             style={{
               width: "100%",
               backgroundColor: "#365fb5",
-              boxSizing: "border-box",
               textAlign: "center",
               color: "white",
             }}
           >
             <div
               style={{
-                width: "100%",
+                height: "180px",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
                 gap: "10px",
-                fontSize: "18px",
-                fontWeight: "500",
-                height: "180px",
               }}
             >
-              <span className="LightFontBoldCheck" style={{ color: "white" }}>
-                SHOPPING CART
-              </span>
-              <span style={{ color: "#999" }} className="LightFontBoldCheck">
-                →
-              </span>
-              <span className="LightFontBoldCheck" style={{ color: "white" }}>
-                CHECKOUT
-              </span>
-              <span style={{ color: "#999" }} className="LightFontBoldCheck">
-                →
-              </span>
-              <span className="LightFontBoldCheck" style={{ color: "white" }}>
-                ORDER COMPLETE
-              </span>
+              <span className="LightFontBoldCheck">SHOPPING CART</span>
+              <span>→</span>
+              <span className="LightFontBoldCheck">CHECKOUT</span>
+              <span>→</span>
+              <span className="LightFontBoldCheck">ORDER COMPLETE</span>
             </div>
           </div>
 

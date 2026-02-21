@@ -8,9 +8,44 @@ import { Link } from "react-router-dom";
 
 export const TopScreen = () => {
     const [openAuth, setOpenAuth] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    // Detect screen resize
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    // ✅ MOBILE VIEW (only centered logo)
+    if (isMobile) {
+        return (
+            <div
+                style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: "20px 0"
+                }}
+            >
+                <img
+                    src={wfun}
+                    alt="Wooen Furniture Logo"
+                    style={{ width: "80px", height: "auto" }}
+                />
+            </div>
+        );
+    }
+
+    // ✅ DESKTOP VIEW (UNCHANGED)
     return (
         <div
-            style={{     // full viewport width
+            style={{
                 width: "100%",
                 display: "flex",
                 flexDirection: "row",
@@ -18,16 +53,17 @@ export const TopScreen = () => {
                 color: "white",
                 margin: 0,
                 padding: 0,
-                       paddingLeft: "20px",
-                            paddingRight:"20px",
-                            position:"relative",
-                            marginBottom:"10px"
+                paddingLeft: "20px",
+                paddingRight: "20px",
+                position: "relative",
+                marginBottom: "10px"
             }}
         >
             <AuthSidebar
                 isOpen={openAuth}
                 onClose={() => setOpenAuth(false)}
             />
+
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
                 <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "center", marginBottom: "10px" }}>
                     <p style={{ margin: 0 }} className="LightFont">Download Now!</p>
@@ -37,7 +73,6 @@ export const TopScreen = () => {
                             backgroundColor: "#f3f3f3",
                             width: "80px",
                             height: "40px",
-
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
@@ -48,12 +83,12 @@ export const TopScreen = () => {
                             marginRight: "10px"
                         }}
                     >
-                        <p className="LightFontBold" style={{ margin: 0, fontSize:"13px" }}>
+                        <p className="LightFontBold" style={{ margin: 0, fontSize: "13px" }}>
                             SUBMIT
                         </p>
                     </button>
-
                 </div>
+
                 <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", width: "660px" }}>
                     <img
                         src={wfun}
@@ -61,16 +96,33 @@ export const TopScreen = () => {
                         style={{ width: "60px", height: "auto", margin: 0, padding: 0, marginRight: "100px", marginLeft: "100px" }}
                     />
 
-                    <p className="LightFont">Open until <span style={{ color: "blue", fontWeight: "bold" }}>6PM</span></p>
+                    <p className="LightFont">
+                        Open until <span style={{ color: "blue", fontWeight: "bold" }}>6PM</span>
+                    </p>
                 </div>
             </div>
-            <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", alignItems: "center", paddingTop: "55px" }}>
 
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", alignItems: "center", paddingTop: "55px" }}>
                 <Link to={`/AboutUs/`}>
-                    <p className="LightFont">About us<span style={{ marginLeft: "15px", marginRight: "15px" }}>|</span></p>
+                    <p className="LightFont">
+                        About us
+                        <span style={{ marginLeft: "15px", marginRight: "15px" }}>|</span>
+                    </p>
                 </Link>
-                <Link to={`/TrackOrder/`}><p className="LightFont">Track order<span style={{ marginLeft: "15px", marginRight: "15px" }}>|</span></p> </Link>
-                <IoMdContact size={50} color="black" style={{ marginRight: "15px", cursor:"pointer" }} onClick={() => setOpenAuth(true)} />
+
+                <Link to={`/TrackOrder/`}>
+                    <p className="LightFont">
+                        Track order
+                        <span style={{ marginLeft: "15px", marginRight: "15px" }}>|</span>
+                    </p>
+                </Link>
+
+                <IoMdContact
+                    size={50}
+                    color="black"
+                    style={{ marginRight: "15px", cursor: "pointer" }}
+                    onClick={() => setOpenAuth(true)}
+                />
             </div>
         </div>
     );

@@ -152,12 +152,13 @@ export const NavigationBar = ({ products }) => {
                     <>
                         {/* Hamburger */}
                         <FaBars
-                            size={22}
+                            size={24}
                             style={{ cursor: "pointer" }}
                             onClick={() => setMobileMenuOpen(true)}
                         />
 
                         {/* Search */}
+
                         <div
                             style={{
                                 flex: 1,
@@ -165,7 +166,10 @@ export const NavigationBar = ({ products }) => {
                                 display: "flex",
                                 alignItems: "center",
                                 background: "white",
-                                padding: "6px 10px"
+                                padding: "6px 10px",
+                                marginTop:"20px",
+                                marginBottom:"20px",
+                                height:"40px"
                             }}
                         >
                             <input
@@ -181,7 +185,7 @@ export const NavigationBar = ({ products }) => {
                         </div>
 
                         {/* Profile */}
-                        <FaUser size={22} style={{ cursor: "pointer" }} onClick={() => setProfileOpen(true)} />
+                        <FaUser size={24} style={{ cursor: "pointer" }} onClick={() => setProfileOpen(true)} />
                     </>
                 ) : (
                     <>
@@ -671,6 +675,10 @@ export const NavigationBar = ({ products }) => {
                                             background: "#fff",
                                             cursor: "pointer"
                                         }}
+                                                                                onClick={() => {
+                                            setMobileMenuOpen(false);
+                                            navigate("/aboutus");
+                                        }}
                                     >
                                         About us
                                     </div>
@@ -835,6 +843,7 @@ export const NavigationBar = ({ products }) => {
     </div>
 
     {/* Login Button */}
+     <Link to={`/MyAccount`} onClick={() => setProfileOpen(false)}>
     <button
       style={{
         width: "100%",
@@ -851,6 +860,7 @@ export const NavigationBar = ({ products }) => {
     >
       LOG IN
     </button>
+    </Link>
 
     {/* Remember Me */}
     <div style={{ marginBottom: "15px", fontSize: "14px" }}>
