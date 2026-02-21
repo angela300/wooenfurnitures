@@ -270,56 +270,6 @@ export const NavigationBar = ({ products }) => {
           </>
         )}
       </div>
-
-      {/* ===== MOBILE DRAWER ===== */}
-      {mobileMenuOpen && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "250px",
-            height: "100vh",
-            background: "white",
-            padding: "20px",
-            zIndex: 9999
-          }}
-        >
-          <button
-            onClick={() => setMobileMenuOpen(false)}
-            style={{
-              border: "none",
-              background: "none",
-              fontSize: "18px",
-              cursor: "pointer"
-            }}
-          >
-            ✕
-          </button>
-
-          <div style={{ marginTop: "20px", display: "flex", flexDirection: "column", gap: "15px" }}>
-            {menus.map((m) => (
-              <Link
-                key={m.key}
-                to={`/category/${m.key}`}
-                onClick={() => setMobileMenuOpen(false)}
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                {m.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <CartSidebar isOpen={openCart} onClose={() => setOpenCart(false)} />
-
-      {showSearch && (
-        <SearchPopup
-          products={products}
-          onClose={() => setShowSearch(false)}
-        />
-      )}
     </>
   );
 };
