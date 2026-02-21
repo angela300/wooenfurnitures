@@ -587,7 +587,7 @@ export const ProductCategoryItems = () => {
                             position: "fixed",
                             top: 0,
                             left: 0,
-                            height: "100vh",
+                            height: "100dvh",
                             width: "320px",
                             background: "#f5f5f5",
                             zIndex: 9999,

@@ -593,7 +593,7 @@ useLayoutEffect(() => {
           position: "fixed",
           top: 0,
           right: 0,
-          height: "100vh",
+          height: "100dvh",
           width: "90vw",
           maxWidth: "380px",
           background: "#f5f5f5",
