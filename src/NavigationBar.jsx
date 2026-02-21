@@ -52,42 +52,22 @@ export const NavigationBar = ({ products }) => {
 
 
     const menus = [
-        {
-            key: "SOFAS",
-            label: "SOFAS",
-            items: [
-                "L-Shaped Sofas",
-                "Chester seats",
-                "Semi-Recliner Sofas",
-                "Sofa set designs",
-                "Sofa Beds",
-            ],
-        },
-        {
-            key: "BEDROOM",
-            label: "BEDROOM",
-            items: [
-                "Chester Beds",
-                "Mirror Beds",
-                "Chest Of Drawers",
-                "Dressing Mirror",
-                "Kids Bed",
-                "Bed designs",
-                "Wardrobe",
-                "Mattress",
-            ],
-        },
-        {
-            key: "LIVING",
-            label: "LIVING ROOM",
-            items: ["TV Stands", "Coffee Tables", "Corner Stand", "Console Tables"],
-        },
-        {
-            key: "CHAIRS",
-            label: "CHAIRS",
-            items: ["Wing Chair", "Office Chairs", "Dining Chairs", "Accent Chairs"],
-        },
-    ];
+  {
+    key: "SOFAS",
+    label: "SOFAS",
+    items: ["Standard Sofas"]
+  },
+  {
+    key: "BEDROOM",
+    label: "BEDROOM",
+    items: ["Modern Beds"]
+  },
+  {
+    key: "LIVING",
+    label: "LIVING ROOM",
+    items: ["TV Stands", "Drawer Units"]
+  }
+]
 
     const [openMenu, setOpenMenu] = useState(null);
 
@@ -624,12 +604,13 @@ useLayoutEffect(() => {
 
                                                 <span
                                                     style={{
-                                                        background: "#cc8e2c",
-                                                        color: "white",
-                                                        padding: "5px 10px"
+                                                        background: "white",
+                                                        color: "#cc8e2c",
+                                                        padding: "5px 10px",
+                                                        fontSize: expandedCategory === category.key ? "18px" : "12px", 
                                                     }}
                                                 >
-                                                    {expandedCategory === category.key ? "−" : "⌄"}
+                                                    {expandedCategory === category.key ? "−" : "▼"}
                                                 </span>
                                             </div>
 
