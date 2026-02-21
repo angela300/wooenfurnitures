@@ -23,6 +23,7 @@ export const NavigationBar = ({ products }) => {
     const navRef = useRef(null);
     const { cartItems } = useCart();
     const [openCart, setOpenCart] = useState(false);
+    
     const navigate = useNavigate();
 
 

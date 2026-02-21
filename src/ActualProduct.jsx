@@ -5,6 +5,7 @@ import { PiMedalBold } from "react-icons/pi";
 import { FaRocketchat, FaTruck } from "react-icons/fa";
 import { MdOutlineLocalConvenienceStore } from "react-icons/md";
 import { useCart } from "./CartContext";
+import { useRef, useEffect } from "react";
 import "./actualProduct.css";
 import "./App.css";
 
@@ -192,105 +193,114 @@ const allProducts = [
     inStock: true,
     onSale: false,
   },
-      {
-      title: "classic grey 3 seater sofa",
-      discount: "-11%",
-      rating: 5,
-      inStock: true,
-      oldPrice: 36000,
-      newPrice: 32000,
-      img: "https://images.unsplash.com/photo-1549187774-b4e9b0445b41?auto=format&fit=crop&w=900&q=60",
-    },
-    {
-      title: "Helsinki 7 seater dark Grey L-",
-      discount: "-9%",
-      rating: 5,
-      inStock: true,
-      oldPrice: 68000,
-      newPrice: 62000,
-      img: "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=900&q=60",
-    },
-    {
-      title: "6 by 6 White Bed With Two",
-      discount: "-3%",
-      rating: 4,
-      inStock: true,
-      oldPrice: 58000,
-      newPrice: 56000,
-      img: "https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=900&q=60",
-    },
-    {
-      title: "Austin 3 seater classic sofa",
-      discount: "-6%",
-      rating: 0,
-      inStock: true,
-      oldPrice: 34000,
-      newPrice: 32000,
-      img: "https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=900&q=60",
-    },
-    {
-      title: "6 seater brown l shaped sofa",
-      discount: "-9%",
-      rating: 0,
-      inStock: true,
-      oldPrice: 64000,
-      newPrice: 58000,
-      img: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=60",
-    },
+  {
+    title: "classic grey 3 seater sofa",
+    discount: "-11%",
+    rating: 5,
+    inStock: true,
+    oldPrice: 36000,
+    newPrice: 32000,
+    img: "https://images.unsplash.com/photo-1549187774-b4e9b0445b41?auto=format&fit=crop&w=900&q=60",
+  },
+  {
+    title: "Helsinki 7 seater dark Grey L-",
+    discount: "-9%",
+    rating: 5,
+    inStock: true,
+    oldPrice: 68000,
+    newPrice: 62000,
+    img: "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=900&q=60",
+  },
+  {
+    title: "6 by 6 White Bed With Two",
+    discount: "-3%",
+    rating: 4,
+    inStock: true,
+    oldPrice: 58000,
+    newPrice: 56000,
+    img: "https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=900&q=60",
+  },
+  {
+    title: "Austin 3 seater classic sofa",
+    discount: "-6%",
+    rating: 0,
+    inStock: true,
+    oldPrice: 34000,
+    newPrice: 32000,
+    img: "https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=900&q=60",
+  },
+  {
+    title: "6 seater brown l shaped sofa",
+    discount: "-9%",
+    rating: 0,
+    inStock: true,
+    oldPrice: 64000,
+    newPrice: 58000,
+    img: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=60",
+  },
 
-    // +5 more (to make 10)
-    {
-      title: "Modern navy 3 seater sofa",
-      discount: "-8%",
-      rating: 4,
-      inStock: true,
-      oldPrice: 50000,
-      newPrice: 46000,
-      img: "https://images.unsplash.com/photo-1549497538-303791108f95?auto=format&fit=crop&w=900&q=60",
-    },
-    {
-      title: "Grey tufted chester bed 6x6",
-      discount: "-7%",
-      rating: 5,
-      inStock: true,
-      oldPrice: 72000,
-      newPrice: 67000,
-      img: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=60",
-    },
-    {
-      title: "White TV stand modern design",
-      discount: "-5%",
-      rating: 4,
-      inStock: true,
-      oldPrice: 22000,
-      newPrice: 20900,
-      img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=60",
-    },
-    {
-      title: "Compact coffee table set",
-      discount: "-10%",
-      rating: 4,
-      inStock: true,
-      oldPrice: 15000,
-      newPrice: 13500,
-      img: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=900&q=60",
-    },
-    {
-      title: "Beige L-shaped corner sofa",
-      discount: "-6%",
-      rating: 5,
-      inStock: true,
-      oldPrice: 70000,
-      newPrice: 65800,
-      img: "https://images.unsplash.com/photo-1598300056393-4aac492f4344?auto=format&fit=crop&w=900&q=60",
-    },
+  // +5 more (to make 10)
+  {
+    title: "Modern navy 3 seater sofa",
+    discount: "-8%",
+    rating: 4,
+    inStock: true,
+    oldPrice: 50000,
+    newPrice: 46000,
+    img: "https://images.unsplash.com/photo-1549497538-303791108f95?auto=format&fit=crop&w=900&q=60",
+  },
+  {
+    title: "Grey tufted chester bed 6x6",
+    discount: "-7%",
+    rating: 5,
+    inStock: true,
+    oldPrice: 72000,
+    newPrice: 67000,
+    img: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=60",
+  },
+  {
+    title: "White TV stand modern design",
+    discount: "-5%",
+    rating: 4,
+    inStock: true,
+    oldPrice: 22000,
+    newPrice: 20900,
+    img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=60",
+  },
+  {
+    title: "Compact coffee table set",
+    discount: "-10%",
+    rating: 4,
+    inStock: true,
+    oldPrice: 15000,
+    newPrice: 13500,
+    img: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=900&q=60",
+  },
+  {
+    title: "Beige L-shaped corner sofa",
+    discount: "-6%",
+    rating: 5,
+    inStock: true,
+    oldPrice: 70000,
+    newPrice: 65800,
+    img: "https://images.unsplash.com/photo-1598300056393-4aac492f4344?auto=format&fit=crop&w=900&q=60",
+  },
 ];
 
 export const ActualProduct = () => {
   const { title } = useParams();
   const navigate = useNavigate();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [expandedCategory, setExpandedCategory] = useState(null);
+  const [activeTab, setActiveTab] = useState("CATEGORIES");
+  const [profileOpen, setProfileOpen] = useState(false);
+  // const [cartOpen, setCartOpen] = useState(false);
+  const navRef = useRef(null);
+
   const { addToCart } = useCart();   // ✅ Correct placement
   const [qty, setQty] = useState(1);
+  
 
   const product = allProducts.find((p) => p.title === title);
 
@@ -298,375 +308,508 @@ export const ActualProduct = () => {
     return <h2 style={{ padding: "40px" }}>Product not found</h2>;
   }
 
-  const handleAddToCart = () => {
-    addToCart(
-      {
-        id: product.id,
-        title: product.title,
-        price: product.newPrice,
-        img: product.img,
-      },
-      qty
-    );
-  };
+const handleAddToCart = () => {
+  addToCart(
+    {
+      id: product.id,
+      title: product.title,
+      price: product.newPrice,
+      img: product.img,
+    },
+    qty
+  );
+
+  setCartOpen(true); // 🔥 Open slider
+};
+
+  // Detect screen resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <div>
 
-      {/* Breadcrumb */}
-      <div className="pci-breadcrumb" style={{ marginTop: "30px" }}>
-        <Link to="/" className="LightFont">Home</Link>
-        <span>/</span>
-        <span className="LightFont">{product.category}</span>
-        <span>/</span>
-        <b className="LightFont">{product.subCategory}</b>
-        <span>/</span>
-        <p className="LightFontBig">{product.title}</p>
-      </div>
+    <>
+      {isMobile ? (
+  <div style={{ padding: "20px 15px" }}>
 
-      <div className="divider" />
+    {/* Breadcrumb */}
+    <div
+      style={{
+        fontSize: "13px",
+        marginBottom: "15px",
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "5px"
+      }}
+    >
+      <Link to="/" className="LightFont">Home</Link>
+      <span>/</span>
+      <span>{product.category}</span>
+      <span>/</span>
+      <span>{product.subCategory}</span>
+    </div>
 
-      <div className="ap-wrap" >
-
-        {/* LEFT IMAGE */}
-        <div className="ap-left">
-          <span className="ap-discount">{product.discount}</span>
-          <img src={product.img} alt={product.title} />
-        </div>
-
-        {/* RIGHT CONTENT */}
-        <div className="ap-right">
-          <p className="LightFontBold" style={{fontSize:"29px"}}>{product.title}</p>
-
-          <div className="ap-price">
-            <span className="ap-old">
-              KSh {product.oldPrice.toLocaleString()}
-            </span>
-            <span className="ap-new">
-              KSh {product.newPrice.toLocaleString()}
-            </span>
-          </div>
-
-          {/* ORDER SECTION */}
-          <div className="ap-orderBox">
-
-            {/* WhatsApp */}
-            <button
-              className="whatsapp-btn"
-              onClick={() =>
-                window.open(
-                  `https://wa.me/254700025861?text=Hello%20I%20would%20like%20to%20order%20${encodeURIComponent(product.title)}`,
-                  "_blank"
-                )
-              }
-            >
-              ORDER VIA WHATSAPP
-            </button>
-
-            <div className="qty-cart">
-              <div className="qty">
-                <button onClick={() => setQty(qty > 1 ? qty - 1 : 1)}>
-                  -
-                </button>
-                <span>{qty}</span>
-                <button onClick={() => setQty(qty + 1)}>+</button>
-              </div>
-
-              <button
-                className="add-cart"
-                onClick={handleAddToCart}
-              >
-                ADD TO CART
-              </button>
-
-              <button
-                className="buy-now"
-                onClick={() => {
-                  handleAddToCart();
-                  navigate("/checkout");
-                }}
-              >
-                BUY NOW
-              </button>
-            </div>
-          </div>
-
-          {/* Wishlist / Compare */}
-          <div className="ap-links">
-            <span><FaHeart /> Add to wishlist</span>
-            <span><FaExchangeAlt /> Add to compare</span>
-          </div>
-
-          {/* Watching section */}
-          <div className="ap-watch">
-            <FaEye /> 15 People watching this product now!
-          </div>
-
-          {/* Extra Info */}
-          <div className="below_ap_watch">
-            <div>
-              <FaTruck size={35} color="lightgray" />
-              <p className="LightFontBold">
-                Fast Shipping
-              </p>
-              <p className="LightFont">
-                Carrier information
-              </p>
-            </div>
-
-            <div>
-              <MdOutlineLocalConvenienceStore size={35} color="lightgray" />
-              <p className="LightFontBold">
-                20k products
-              </p>
-              <p className="LightFont">
-                Payment methods
-              </p>
-            </div>
-
-            <div>
-              <FaRocketchat size={35} color="lightgray" />
-              <p className="LightFontBold">
-                24/7 Support
-              </p>
-              <p className="LightFont">
-                Unlimited help desk
-              </p>
-            </div>
-
-            <div>
-              <PiMedalBold size={35} color="lightgray" />
-              <p className="LightFontBold">
-                2-day Delivery
-              </p>
-              <p className="LightFont">
-                Track your orders
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div
+    {/* Product Image */}
+    <div style={{ position: "relative" }}>
+      <span
         style={{
-          width: "100%",
-          display: "flex",
-          padding: "60px 5%",
-          boxSizing: "border-box",
-          gap: "50px"
+          position: "absolute",
+          top: "10px",
+          left: "10px",
+          background: "#cc8e2c",
+          color: "white",
+          padding: "5px 10px",
+          fontSize: "12px"
         }}
       >
-        {/* LEFT SIDE — REVIEWS */}
-        <div style={{ flex: 2 }}>
-          <p className="LightFontBigger">Reviews (3)</p>
-          <p className="LightFont" style={{ marginBottom: "30px", color: "#555" }}>
-            3 reviews for -6 by 6 White Bed With Two side drawers
-          </p>
+        {product.discount}
+      </span>
 
-          {/* Review 1 */}
-          <div style={{ marginBottom: "30px", borderBottom: "1px solid #eee", paddingBottom: "20px" }}>
-            <strong className="LightFontBig" style={{ fontSize: "20px" }}>Abbas Noor</strong> – May 4, 2024
-            <p style={{ color: "#f5b301", margin: "5px 0" }}>★★★★☆</p>
-            <p className="LightFont">Amazing and stylish bed, I would love it to know the actual price</p>
-          </div>
+      <img
+        src={product.img}
+        alt={product.title}
+        style={{ width: "100%", objectFit: "cover" }}
+      />
+    </div>
 
-          {/* Admin Reply */}
-          <div style={{ marginLeft: "20px", marginBottom: "30px" }}>
-            <strong>admin</strong> – May 4, 2024
-            <p className="LightFont">price indicated is actual</p>
-          </div>
+    {/* Title */}
+    <h2
+      style={{
+        marginTop: "20px",
+        fontSize: "20px",
+        lineHeight: "1.4"
+      }}
+    >
+      {product.title}
+    </h2>
 
-          {/* Review 2 */}
-          <div style={{ marginBottom: "30px", borderBottom: "1px solid #eee", paddingBottom: "20px" }}>
-            <strong className="LightFontBig" style={{ fontSize: "20px" }}>Taddy Yohannes</strong> – June 19, 2024
-            <p style={{ color: "#f5b301", margin: "5px 0" }}>★★★★☆</p>
-            <p className="LightFont">I’m interested in Lamu furniture bed. 5 by 6</p>
-          </div>
+    {/* Price */}
+    <div style={{ marginTop: "10px", marginBottom: "20px" }}>
+      <span
+        style={{
+          textDecoration: "line-through",
+          color: "#999",
+          marginRight: "10px"
+        }}
+      >
+        KSh {product.oldPrice.toLocaleString()}
+      </span>
 
-          {/* Admin Reply */}
-          <div style={{ marginLeft: "20px", marginBottom: "30px" }}>
-            <strong>admin</strong> – June 19, 2024
-            <p className="LightFont">Hello. We have 5 by 6 bed available. Call/whatsapp 0722948285</p>
-          </div>
+      <span
+        style={{
+          color: "#cc8e2c",
+          fontWeight: 600,
+          fontSize: "18px"
+        }}
+      >
+        KSh {product.newPrice.toLocaleString()}
+      </span>
+    </div>
 
-          {/* Review 3 */}
-          <div style={{ marginBottom: "30px", borderBottom: "1px solid #eee", paddingBottom: "20px" }}>
-            <strong className="LightFontBig" style={{ fontSize: "20px" }}>Catherine</strong> – May 30, 2025
-            <p style={{ color: "#f5b301", margin: "5px 0" }}>★★★★★</p>
-            <p className="LightFont">The best</p>
-          </div>
-        </div>
+    {/* WhatsApp Button */}
+    <button
+      style={{
+        width: "100%",
+        padding: "14px",
+        background: "#25D366",
+        color: "white",
+        border: "none",
+        marginBottom: "10px",
+        fontWeight: 600,
+        borderRadius:0,
+      }}
+      onClick={() =>
+        window.open(
+          `https://wa.me/254700025861?text=Hello%20I%20would%20like%20to%20order%20${encodeURIComponent(product.title)}`,
+          "_blank"
+        )
+      }
+    >
+      ORDER VIA WHATSAPP
+    </button>
 
-        {/* RIGHT SIDE — ADD REVIEW FORM */}
-        <div
-          style={{
-            flex: 1,
-            borderLeft: "1px solid #eee",
-            paddingLeft: "40px"
-          }}
-        >
-          <p className="LightFontBigger">Add a review</p>
-          <p style={{ color: "#666" }} className="LightFont">
-            Your email address will not be published. Required fields are marked *
-          </p>
+    {/* Quantity + Cart */}
+    <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
+      <div
+        style={{
+          display: "flex",
+          border: "1px solid #ddd"
+        }}
+      >
+        <button onClick={() => setQty(qty > 1 ? qty - 1 : 1)}>-</button>
+        <span style={{ padding: "8px 15px" }}>{qty}</span>
+        <button onClick={() => setQty(qty + 1)}>+</button>
+      </div>
 
-          {/* Rating */}
-          <div style={{ marginTop: "20px" }}>
-            <label className="LightFont">Your rating *</label>
-            <div style={{ color: "#f5b301", fontSize: "20px", marginTop: "5px" }}>
-              ★★★★★
-            </div>
-          </div>
+      <button
+        style={{
+          flex: 1,
+          background: "#1e40af",
+          color: "white",
+          border: "none",
+          borderRadius:0
+        }}
+        onClick={handleAddToCart}
+      >
+        ADD TO CART
+      </button>
+    </div>
 
-          {/* Review Text */}
-          <div style={{ marginTop: "20px" }}>
-            <label className="LightFont">Your review *</label>
-            <textarea
-              style={{
-                width: "100%",
-                height: "120px",
-                marginTop: "5px",
-                padding: "10px",
-                border: "1px solid #ddd",
-                outline: "none"
-              }}
-            />
-          </div>
+    {/* Buy Now */}
+    <button
+      style={{
+        width: "100%",
+        padding: "14px",
+        background: "black",
+        color: "white",
+        border: "none",
+        marginBottom: "25px",
+        borderRadius:0
+      }}
+      onClick={() => {
+        handleAddToCart();
+        navigate("/checkout");
+      }}
+    >
+      BUY NOW
+    </button>
 
-          {/* Name */}
-          <div style={{ marginTop: "20px" }}>
-            <label className="LightFont">Name *</label>
-            <input
-              type="text"
-              style={{
-                width: "100%",
-                padding: "10px",
-                marginTop: "5px",
-                border: "1px solid #ddd"
-              }}
-            />
-          </div>
+    {/* Divider */}
+    <div style={{ height: "1px", background: "#eee", margin: "20px 0" }} />
 
-          {/* Email */}
-          <div style={{ marginTop: "20px" }}>
-            <label className="LightFont">Email *</label>
-            <input
-              type="email"
-              style={{
-                width: "100%",
-                padding: "10px",
-                marginTop: "5px",
-                border: "1px solid #ddd"
-              }}
-            />
-          </div>
+    {/* Description */}
+    <h3 style={{ marginBottom: "10px" }}>Description</h3>
+    <p style={{ color: "#555", lineHeight: "1.6" }}>
+      Wood: Blue gum
+      <br />
+      Size: 6 by 6
+      <br />
+      Color: White
+    </p>
 
-          {/* Checkbox */}
-          <div style={{ marginTop: "15px" }}>
-            <input type="checkbox" id="saveInfo" />
-            <label htmlFor="saveInfo" style={{ marginLeft: "8px", fontSize: "14px" }} className="LightFont">
-              Save my name, email, and website in this browser for the next time I comment.
-            </label>
-          </div>
+    {/* Divider */}
+    <div style={{ height: "1px", background: "#eee", margin: "20px 0" }} />
 
-          {/* Submit Button */}
-          <button
+    {/* Reviews */}
+    <h3 style={{ marginBottom: "10px" }}>Reviews (3)</h3>
+
+    <div style={{ marginBottom: "20px" }}>
+      <strong>Abbas Noor</strong>
+      <p style={{ color: "#f5b301" }}>★★★★☆</p>
+      <p>Amazing and stylish bed.</p>
+    </div>
+
+  </div>
+) : (
+        <div style={{ width: "100%", boxSizing: "border-box" }}>
+
+          {/* Breadcrumb */}
+          <div
+            className="pci-breadcrumb"
             style={{
-              marginTop: "25px",
-              width: "100%",
-              padding: "12px",
-              background: "#1e40af",
-              color: "white",
-              border: "none",
-              cursor: "pointer",
-              fontWeight: "600",
-              borderRadius: 0
+              marginTop: "30px",
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              gap: "6px"
             }}
           >
-            Submit
-          </button>
-        </div>
-      </div>
+            <Link to="/" className="LightFont">Home</Link>
+            <span>/</span>
+            <span className="LightFont">{product.category}</span>
+            <span>/</span>
+            <span className="LightFont">{product.subCategory}</span>
+            <span>/</span>
+            <span className="LightFontBig">{product.title}</span>
+          </div>
 
+          <div
+            style={{
+              width: "100%",
+              height: "1px",
+              background: "#eee",
+              margin: "20px 0"
+            }}
+          />
+
+          {/* Product Main Section */}
+          <div
+            className="ap-wrap"
+            style={{
+              display: "flex",
+              gap: "60px",
+              alignItems: "flex-start",
+              flexWrap: "wrap"
+            }}
+          >
+
+            {/* LEFT IMAGE */}
+            <div className="ap-left" style={{ flex: "1", minWidth: "300px" }}>
+              <span className="ap-discount">{product.discount}</span>
+              <img
+                src={product.img}
+                alt={product.title}
+                style={{ width: "100%", objectFit: "cover" }}
+              />
+            </div>
+
+            {/* RIGHT CONTENT */}
+            <div className="ap-right" style={{ flex: "1", minWidth: "350px" }}>
+              <p
+                className="LightFontBold"
+                style={{ fontSize: "29px", marginBottom: "15px" }}
+              >
+                {product.title}
+              </p>
+
+              <div className="ap-price" style={{ marginBottom: "20px" }}>
+                <span className="ap-old">
+                  KSh {product.oldPrice.toLocaleString()}
+                </span>
+                <span className="ap-new">
+                  KSh {product.newPrice.toLocaleString()}
+                </span>
+              </div>
+
+              {/* ORDER SECTION */}
+              <div className="ap-orderBox">
+                <button
+                  className="whatsapp-btn"
+                  onClick={() =>
+                    window.open(
+                      `https://wa.me/254700025861?text=Hello%20I%20would%20like%20to%20order%20${encodeURIComponent(product.title)}`,
+                      "_blank"
+                    )
+                  }
+                >
+                  ORDER VIA WHATSAPP
+                </button>
+
+                <div className="qty-cart">
+                  <div className="qty">
+                    <button onClick={() => setQty(qty > 1 ? qty - 1 : 1)}>
+                      -
+                    </button>
+                    <span>{qty}</span>
+                    <button onClick={() => setQty(qty + 1)}>+</button>
+                  </div>
+
+                  <button className="add-cart" onClick={handleAddToCart}>
+                    ADD TO CART
+                  </button>
+
+                  <button
+                    className="buy-now"
+                    onClick={() => {
+                      handleAddToCart();
+                      navigate("/checkout");
+                    }}
+                  >
+                    BUY NOW
+                  </button>
+                </div>
+              </div>
+
+              {/* Wishlist / Compare */}
+              <div
+                className="ap-links"
+                style={{ display: "flex", gap: "20px", marginTop: "20px" }}
+              >
+                <span><FaHeart /> Add to wishlist</span>
+                <span><FaExchangeAlt /> Add to compare</span>
+              </div>
+
+              {/* Watching */}
+              <div
+                className="ap-watch"
+                style={{ marginTop: "15px", color: "#555" }}
+              >
+                <FaEye /> 15 People watching this product now!
+              </div>
+            </div>
+          </div>
+
+          {/* Reviews + Form Section */}
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              padding: "60px 5%",
+              boxSizing: "border-box",
+              gap: "50px",
+              flexWrap: "wrap"
+            }}
+          >
+            {/* Left Reviews */}
+            <div style={{ flex: "2", minWidth: "300px" }}>
+              <p className="LightFontBigger">Reviews (3)</p>
+              <p
+                className="LightFont"
+                style={{ marginBottom: "30px", color: "#555" }}
+              >
+                3 reviews for -6 by 6 White Bed With Two side drawers
+              </p>
+            </div>
+
+            {/* Right Review Form */}
+            <div
+              style={{
+                flex: "1",
+                minWidth: "300px",
+                borderLeft: "1px solid #eee",
+                paddingLeft: "40px"
+              }}
+            >
+              <p className="LightFontBigger">Add a review</p>
+            </div>
+          </div>
+
+        </div>
+      )}
+
+      {cartOpen && (
+  <>
+    {/* Overlay */}
+    <div
+      onClick={() => setCartOpen(false)}
+      style={{
+        position: "fixed",
+        inset: 0,
+        background: "rgba(0,0,0,0.4)",
+        zIndex: 9998
+      }}
+    />
+
+    {/* Cart Drawer */}
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        right: 0,
+        height: "100vh",
+        width: "90vw",
+        maxWidth: "380px",
+        background: "#f5f5f5",
+        zIndex: 9999,
+        display: "flex",
+        flexDirection: "column",
+        boxShadow: "-4px 0 20px rgba(0,0,0,0.25)",
+        animation: "slideInRight 0.3s ease forwards"
+      }}
+    >
+      {/* Header */}
       <div
         style={{
-          width: "100%",
-          padding: "60px 5%",
-          boxSizing: "border-box",
+          padding: "20px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          borderBottom: "1px solid #ddd",
+          background: "#fff",
+          fontWeight: 600
         }}
       >
-        {/* Top Accent Line */}
-        <div
-          style={{
-            width: "60px",
-            height: "3px",
-            background: "#d97706",
-            marginBottom: "20px"
-          }}
-        />
-
-        {/* Description Title */}
-        <p style={{ marginBottom: "20px" }} className="LightFontBig">Description</p>
-
-        {/* Description Content */}
-        <div style={{ color: "#555", lineHeight: "1.8" }}>
-          <p className="LightFont">Wood: Blue gum</p>
-          <p className="LightFont">size; 6 by 6</p>
-          <p className="LightFont">color: White</p>
-        </div>
-
-        {/* Divider */}
-        <div
-          style={{
-            margin: "40px 0 20px 0",
-            width: "40px",
-            height: "2px",
-            background: "#ccc"
-          }}
-        />
-
-        {/* Related Section */}
-        <h4 style={{ marginBottom: "20px" }}>Related</h4>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            gap: "40px",
-            flexWrap: "wrap"
-          }}
+        Shopping cart
+        <span
+          style={{ cursor: "pointer" }}
+          onClick={() => setCartOpen(false)}
         >
-          {/* Related Item 1 */}
-          <div style={{ flex: "1", minWidth: "250px" }}>
-            <p style={{ fontWeight: "500" }} className="LightFont">
-              5 by 6 white wooden bed with two side drawers
-            </p>
-            <p style={{ color: "#888", fontSize: "14px" }} className="LightFont">February 19, 2024</p>
-            <p style={{ color: "#aaa", fontSize: "14px" }} className="LightFont">Similar post</p>
-          </div>
-
-          {/* Related Item 2 */}
-          <div style={{ flex: "1", minWidth: "250px" }}>
-            <p style={{ fontWeight: "500" }} className="LightFont">
-              6 by 6 classic white bed with two side drawers
-            </p>
-            <p style={{ color: "#888", fontSize: "14px" }} className="LightFont">August 17, 2022</p>
-            <p style={{ color: "#aaa", fontSize: "14px" }} className="LightFont">Similar post</p>
-          </div>
-
-          {/* Related Item 3 */}
-          <div style={{ flex: "1", minWidth: "250px" }}>
-            <p style={{ fontWeight: "500" }} className="LightFont">
-              Preston beige 5 by 6 bed with two side drawers
-            </p>
-            <p style={{ color: "#888", fontSize: "14px" }} className="LightFont">March 14, 2024</p>
-            <p style={{ color: "#aaa", fontSize: "14px" }} className="LightFont">With 1 comment</p>
-          </div>
-        </div>
+          ✕ Close
+        </span>
       </div>
 
+      {/* Cart Items */}
+      <div style={{ flex: 1, overflowY: "auto", padding: "20px" }}>
+        {cartItems.map((item, index) => (
+          <div
+            key={index}
+            style={{
+              display: "flex",
+              gap: "15px",
+              marginBottom: "20px",
+              borderBottom: "1px solid #eee",
+              paddingBottom: "15px"
+            }}
+          >
+            <img
+              src={item.img}
+              alt={item.title}
+              style={{ width: "70px", height: "70px", objectFit: "cover" }}
+            />
 
+            <div style={{ flex: 1 }}>
+              <p style={{ fontSize: "14px", fontWeight: 600 }}>
+                {item.title}
+              </p>
+              <p style={{ fontSize: "13px", color: "#777" }}>
+                {item.quantity} × KSh {item.price.toLocaleString()}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Subtotal */}
+      <div
+        style={{
+          padding: "20px",
+          borderTop: "1px solid #ddd",
+          background: "#fff"
+        }}
+      >
+        <p style={{ fontWeight: 600, marginBottom: "15px" }}>
+          Subtotal:{" "}
+          <span style={{ color: "#cc8e2c" }}>
+            KSh{" "}
+            {cartItems
+              .reduce((acc, item) => acc + item.price * item.quantity, 0)
+              .toLocaleString()}
+          </span>
+        </p>
+
+        <button
+          style={{
+            width: "100%",
+            padding: "12px",
+            background: "#eee",
+            border: "none",
+            marginBottom: "10px",
+            cursor: "pointer"
+          }}
+          onClick={() => {
+            setCartOpen(false);
+            navigate("/cart");
+          }}
+        >
+          VIEW CART
+        </button>
+
+        <button
+          style={{
+            width: "100%",
+            padding: "12px",
+            background: "#1e40af",
+            color: "white",
+            border: "none",
+            cursor: "pointer"
+          }}
+          onClick={() => {
+            setCartOpen(false);
+            navigate("/checkout");
+          }}
+        >
+          CHECKOUT
+        </button>
+      </div>
     </div>
+  </>
+)}
+    </>
+
   );
 };
