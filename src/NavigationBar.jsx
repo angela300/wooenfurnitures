@@ -1,6 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
-import { FaHeart, FaExchangeAlt, FaShoppingCart, FaChevronDown } from "react-icons/fa";
+import {
+    FaHeart,
+    FaExchangeAlt,
+    FaShoppingCart,
+    FaChevronDown,
+    FaBars,
+    FaUser
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SearchPopup from "./SearchPopup";
 import { useCart } from "./CartContext";
@@ -8,14 +15,68 @@ import CartSidebar from "./CartSidebar";
 import { useNavigate } from "react-router-dom";
 
 export const NavigationBar = ({ products }) => {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    const [expandedCategory, setExpandedCategory] = useState(null);
+    const [activeTab, setActiveTab] = useState("CATEGORIES");
+    const navRef = useRef(null);
     const { cartItems } = useCart();
     const [openCart, setOpenCart] = useState(false);
     const navigate = useNavigate();
+
+const DrawerExpandable = ({ label, isOpen, onClick }) => (
+  <div
+    onClick={onClick}
+    style={{
+      padding: "15px 20px",
+      borderBottom: "1px solid #ddd",
+      background: "#fff",
+      display: "flex",
+      justifyContent: "space-between",
+      cursor: "pointer"
+    }}
+  >
+    {label}
+    <span
+      style={{
+        background: "#cc8e2c",
+        color: "white",
+        padding: "5px 10px"
+      }}
+    >
+      {isOpen ? "−" : "⌄"}
+    </span>
+  </div>
+);
+
+const DrawerSubItem = ({ label, onClick }) => (
+  <div
+    onClick={onClick}
+    style={{
+      padding: "12px 40px",
+      borderBottom: "1px solid #eee",
+      background: "#fff",
+      fontSize: "14px",
+      cursor: "pointer"
+    }}
+  >
+    {label}
+  </div>
+);
 
     const totalCount = cartItems.reduce(
         (acc, item) => acc + item.quantity,
         0
     );
+
+    // Detect screen resize
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
 
     const icons = [
@@ -64,7 +125,6 @@ export const NavigationBar = ({ products }) => {
     ];
 
     const [openMenu, setOpenMenu] = useState(null);
-    const navRef = useRef(null);
 
     // close dropdown when clicking outside
     useEffect(() => {
@@ -93,6 +153,7 @@ export const NavigationBar = ({ products }) => {
     const [showSearch, setShowSearch] = useState(false);
 
     return (
+        <>
         <div
             ref={navRef}
             style={{
@@ -105,12 +166,49 @@ export const NavigationBar = ({ products }) => {
                 boxSizing: "border-box",
                 overflow: "visible",
                 position: "relative",
-                paddingLeft:"20px",
-                paddingRight:"20px",
+                paddingLeft: "20px",
+                paddingRight: "20px",
             }}
         >
 
-            <CartSidebar
+            {isMobile ? (
+                <>
+                    {/* Hamburger */}
+                    <FaBars
+                        size={22}
+                        style={{ cursor: "pointer" }}
+                        onClick={() => setMobileMenuOpen(true)}
+                    />
+
+                    {/* Search */}
+                    <div
+                        style={{
+                            flex: 1,
+                            margin: "0 15px",
+                            display: "flex",
+                            alignItems: "center",
+                            background: "white",
+                            padding: "6px 10px"
+                        }}
+                    >
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            onFocus={() => setShowSearch(true)}
+                            style={{
+                                border: "none",
+                                outline: "none",
+                                flex: 1
+                            }}
+                        />
+                    </div>
+
+                    {/* Profile */}
+                    <FaUser size={22} style={{ cursor: "pointer" }} />
+                </>
+            ) : (
+                <>
+                 <CartSidebar
                 isOpen={openCart}
                 onClose={() => setOpenCart(false)}
             />
@@ -134,17 +232,17 @@ export const NavigationBar = ({ products }) => {
                     }}
                 >
                     <div style={{ cursor: "pointer" }}>
-                        
+
                     </div>
-                                            <Link
-                            to="/"
-                            style={{
-                                textDecoration: "none",
-                                color: "white",
-                            }}
-                        >
-                            <p style={{ margin: 0 }}>Home</p>
-                        </Link>
+                    <Link
+                        to="/"
+                        style={{
+                            textDecoration: "none",
+                            color: "white",
+                        }}
+                    >
+                        <p style={{ margin: 0 }}>Home</p>
+                    </Link>
 
                     {/* Dropdown menus */}
                     <div style={{ display: "flex", gap: "28px", position: "relative", overflow: "visible" }}>
@@ -190,12 +288,12 @@ export const NavigationBar = ({ products }) => {
                                                     textDecoration: "none",
                                                     color: "#111",
                                                 }}
-                                                                                onMouseEnter={(e) =>
-                                    (e.currentTarget.style.color = "orange")
-                                }
-                                onMouseLeave={(e) =>
-                                    (e.currentTarget.style.color = "#111")
-                                }
+                                                onMouseEnter={(e) =>
+                                                    (e.currentTarget.style.color = "orange")
+                                                }
+                                                onMouseLeave={(e) =>
+                                                    (e.currentTarget.style.color = "#111")
+                                                }
                                                 onClick={() => setOpenMenu(null)}
                                             >
                                                 {txt}
@@ -223,8 +321,8 @@ export const NavigationBar = ({ products }) => {
                         alignItems: "center",
                         position: "relative",
                     }}
-                    // ❌ remove onMouseLeave here unless you want it to close when leaving entire area
-                    >
+                // ❌ remove onMouseLeave here unless you want it to close when leaving entire area
+                >
 
                     {/* Label row */}
                     <div
@@ -242,7 +340,7 @@ export const NavigationBar = ({ products }) => {
                                 textDecoration: "none",
                                 color: "white",
                             }}
-                             onMouseEnter={() => setOpenMenu("DOORS")}
+                            onMouseEnter={() => setOpenMenu("DOORS")}
                         >
                             <p style={{ margin: 0 }}>DOORS & FRAMES</p>
                         </Link>
@@ -346,14 +444,14 @@ export const NavigationBar = ({ products }) => {
                             <div
                                 key={index}
                                 onClick={() => {
-  if (isCart) {
-    setOpenCart(true);
-  } else if (isWishlist) {
-    navigate("/wish");
-  } else if (isCompare) {
-    navigate("/compare");
-  }
-}}
+                                    if (isCart) {
+                                        setOpenCart(true);
+                                    } else if (isWishlist) {
+                                        navigate("/wish");
+                                    } else if (isCompare) {
+                                        navigate("/compare");
+                                    }
+                                }}
                                 style={{
                                     position: "relative",
                                     width: "40px",
@@ -397,6 +495,264 @@ export const NavigationBar = ({ products }) => {
 
             </div>
 
+                </>
+  
+            )}
+
+           
         </div>
+
+              {/* ===== MOBILE DRAWER ===== */}
+{mobileMenuOpen && (
+  <>
+    {/* Overlay */}
+    <div
+      onClick={() => setMobileMenuOpen(false)}
+      style={{
+        position: "fixed",
+        inset: 0,
+        background: "rgba(0,0,0,0.45)",
+        zIndex: 9998,
+      }}
+    />
+
+    {/* Drawer */}
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        height: "100vh",
+        width: "320px",
+        background: "#f5f5f5",
+        zIndex: 9999,
+        display: "flex",
+        flexDirection: "column",
+        animation: "slideIn 0.3s ease forwards"
+      }}
+    >
+      {/* Close Header */}
+      <div
+        style={{
+          padding: "15px 20px",
+          display: "flex",
+          justifyContent: "flex-end",
+          borderBottom: "1px solid #ddd",
+          background: "#f0f0f0",
+          fontWeight: "500",
+          cursor: "pointer"
+        }}
+        onClick={() => setMobileMenuOpen(false)}
+      >
+        ✕ Close
+      </div>
+
+      {/* Tabs */}
+      <div style={{ display: "flex", borderBottom: "1px solid #ddd" }}>
+        <div
+          onClick={() => setActiveTab("CATEGORIES")}
+          style={{
+            flex: 1,
+            padding: "15px",
+            textAlign: "center",
+            fontWeight: "600",
+            background: activeTab === "CATEGORIES" ? "#fff" : "#eaeaea",
+            borderBottom:
+              activeTab === "CATEGORIES"
+                ? "3px solid #cc8e2c"
+                : "3px solid transparent",
+            cursor: "pointer"
+          }}
+        >
+          CATEGORIES
+        </div>
+
+        <div
+          onClick={() => setActiveTab("MENU")}
+          style={{
+            flex: 1,
+            padding: "15px",
+            textAlign: "center",
+            fontWeight: "600",
+            background: activeTab === "MENU" ? "#fff" : "#eaeaea",
+            borderBottom:
+              activeTab === "MENU"
+                ? "3px solid #cc8e2c"
+                : "3px solid transparent",
+            cursor: "pointer"
+          }}
+        >
+          MENU
+        </div>
+      </div>
+
+      {/* Content */}
+      <div style={{ flex: 1, overflowY: "auto" }}>
+
+        {activeTab === "CATEGORIES" && (
+          <>
+            {/* Home */}
+            <div
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate("/");
+              }}
+              style={{
+                padding: "15px 20px",
+                borderBottom: "1px solid #ddd",
+                background: "#fff",
+                cursor: "pointer"
+              }}
+            >
+              Home
+            </div>
+
+            {/* Dynamic Categories */}
+            {menus.map((category) => (
+              <div key={category.key}>
+
+                {/* Main Category */}
+                <div
+                  onClick={() =>
+                    setExpandedCategory(
+                      expandedCategory === category.key
+                        ? null
+                        : category.key
+                    )
+                  }
+                  style={{
+                    padding: "15px 20px",
+                    borderBottom: "1px solid #ddd",
+                    background: "#fff",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    cursor: "pointer"
+                  }}
+                >
+                  {category.label}
+
+                  <span
+                    style={{
+                      background: "#cc8e2c",
+                      color: "white",
+                      padding: "5px 10px"
+                    }}
+                  >
+                    {expandedCategory === category.key ? "−" : "⌄"}
+                  </span>
+                </div>
+
+                {/* Subcategories */}
+                {expandedCategory === category.key &&
+                  category.items.map((sub) => (
+                    <div
+                      key={sub}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        navigate(
+                          `/category/${category.key}/${encodeURIComponent(sub)}`
+                        );
+                      }}
+                      style={{
+                        padding: "12px 40px",
+                        borderBottom: "1px solid #eee",
+                        background: "#fff",
+                        fontSize: "14px",
+                        cursor: "pointer"
+                      }}
+                    >
+                      {sub}
+                    </div>
+                  ))}
+
+              </div>
+            ))}
+          </>
+        )}
+
+        {activeTab === "MENU" && (
+          <>
+            <div
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate("/");
+              }}
+              style={{
+                padding: "15px 20px",
+                borderBottom: "1px solid #ddd",
+                background: "#fff",
+                cursor: "pointer"
+              }}
+            >
+              Home
+            </div>
+
+            <div
+              style={{
+                padding: "15px 20px",
+                borderBottom: "1px solid #ddd",
+                background: "#fff",
+                cursor: "pointer"
+              }}
+            >
+              About us
+            </div>
+          </>
+        )}
+
+      </div>
+
+      {/* Floating Call Button */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "20px",
+          left: "20px",
+          display: "flex",
+          alignItems: "center",
+          gap: "10px"
+        }}
+      >
+        <div
+          style={{
+            width: "50px",
+            height: "50px",
+            borderRadius: "50%",
+            background: "#cc8e2c",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "white",
+            fontSize: "20px"
+          }}
+        >
+          📞
+        </div>
+
+        <div
+          style={{
+            background: "#666",
+            color: "white",
+            padding: "5px 10px",
+            fontSize: "13px",
+            borderRadius: "3px"
+          }}
+        >
+          Call Us Now!
+        </div>
+      </div>
+
+    </div>
+  </>
+)}
+      <CartSidebar isOpen={openCart} onClose={() => setOpenCart(false)} />
+
+      {showSearch && (
+        <SearchPopup
+          products={products}
+          onClose={() => setShowSearch(false)}
+        />
+      )}
+        </>
     );
 };
