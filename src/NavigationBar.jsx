@@ -24,45 +24,6 @@ export const NavigationBar = ({ products }) => {
     const [openCart, setOpenCart] = useState(false);
     const navigate = useNavigate();
 
-const DrawerExpandable = ({ label, isOpen, onClick }) => (
-  <div
-    onClick={onClick}
-    style={{
-      padding: "15px 20px",
-      borderBottom: "1px solid #ddd",
-      background: "#fff",
-      display: "flex",
-      justifyContent: "space-between",
-      cursor: "pointer"
-    }}
-  >
-    {label}
-    <span
-      style={{
-        background: "#cc8e2c",
-        color: "white",
-        padding: "5px 10px"
-      }}
-    >
-      {isOpen ? "−" : "⌄"}
-    </span>
-  </div>
-);
-
-const DrawerSubItem = ({ label, onClick }) => (
-  <div
-    onClick={onClick}
-    style={{
-      padding: "12px 40px",
-      borderBottom: "1px solid #eee",
-      background: "#fff",
-      fontSize: "14px",
-      cursor: "pointer"
-    }}
-  >
-    {label}
-  </div>
-);
 
     const totalCount = cartItems.reduce(
         (acc, item) => acc + item.quantity,
@@ -564,7 +525,7 @@ const DrawerSubItem = ({ label, onClick }) => (
             cursor: "pointer"
           }}
         >
-          CATEGORIES
+          <p className="LightFontBold">CATEGORIES</p>
         </div>
 
         <div
