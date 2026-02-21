@@ -63,7 +63,7 @@ export const NavigationBar = ({ products }) => {
     items: ["Modern Beds"]
   },
   {
-    key: "LIVING",
+    key: "LIVING ROOM",
     label: "LIVING ROOM",
     items: ["TV Stands", "Drawer Units"]
   }
