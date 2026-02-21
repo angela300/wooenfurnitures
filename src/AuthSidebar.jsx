@@ -2,7 +2,6 @@ import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import "./AuthSidebar.css";
 import "./App.css";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoMdContact } from "react-icons/io";
 import { Link } from "react-router-dom";
 
@@ -22,25 +21,25 @@ const AuthSidebar = ({ isOpen, onClose }) => {
                     width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-between"
                     , marginTop: "10px", marginBottom: "30px"
                 }}>
-                    <p className="LightFontBig">Sign in</p>
+                    <p className="LightFontBold">Sign in</p>
                     <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-                        <p className="LightFontBig">Close</p>
+                        <p className="LightFontBold">Close</p>
                         <IoClose size={24} onClick={onClose} color="black" />
                     </div>
                 </div>
 
                 <div className="divider" />
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
-                    <div>
+                <div style={{ paddingLeft:"60px", display: "flex", flexDirection: "column", gap: "30px" }}>
+                    <div style={{display:"flex", flexDirection:"column"}}>
                         <p className="LightFont" style={{ color: "black" }}>
                             Username or email address <span style={{ color: "red" }}>*</span>
                         </p>
                         <input
                             type="text"
                             style={{
-                                width: "420px",
-                                height: "60px",
+                                width: "350px",
+                                height: "40px",
                                 backgroundColor: "#f6f6f6",
                                 borderRadius: "2px",
                                 border: 0,
@@ -68,8 +67,8 @@ const AuthSidebar = ({ isOpen, onClose }) => {
                             <input
                                 type={showPassword ? "text" : "password"}
                                 style={{
-                                    width: "100%",
-                                    height: "60px",
+                                    width: "350px",
+                                    height: "40px",
                                     backgroundColor: "#f6f6f6",
                                     borderRadius: "2px",
                                     border: 0,
@@ -79,22 +78,6 @@ const AuthSidebar = ({ isOpen, onClose }) => {
                                     boxSizing: "border-box"
                                 }}
                             />
-
-                            {/* Eye Icon */}
-                            <div
-                                onClick={() => setShowPassword(!showPassword)}
-                                style={{
-                                    position: "absolute",
-                                    right: "15px",
-                                    height: "100%",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    cursor: "pointer",
-                                    color: "#777"
-                                }}
-                            >
-                                {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
-                            </div>
                         </div>
                     </div>
 
@@ -103,8 +86,8 @@ const AuthSidebar = ({ isOpen, onClose }) => {
 
                                                                  <Link to={`/MyAccount`}>
                                                             <button style={{
-                        width: "420px",
-                        height: "60px",
+                        width: "300px",
+                        height: "40px",
                         backgroundColor: "blue",
                         borderRadius: 0,
                         color: "white"
@@ -128,12 +111,11 @@ const AuthSidebar = ({ isOpen, onClose }) => {
 
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                         <IoMdContact size={80} color="#f6f6f6" style={{ marginRight: "15px" }} onClick={() => setOpenAuth(true)} />
-                        <p className="LightFontBig" style={{ color: "black", fontSize: "22px", marginBottom: "25px" }}>No account yet?</p>
+                        <p className="LightFontBold" style={{ color: "black",marginBottom: "25px" }}>No account yet?</p>
                         <a
                             href="#"
-                            className="LightFontBig"
+                            className="LightFontBold"
                             style={{
-                                fontSize: "18px",
                                 textDecoration: "underline",
                                 textDecorationColor: "#d35400", // darker orange
                                 textUnderlineOffset: "4px",

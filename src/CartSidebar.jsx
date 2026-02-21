@@ -39,6 +39,7 @@ const CartSidebar = ({ isOpen, onClose }) => {
           zIndex: 1000,
           display: "flex",
           flexDirection: "column",
+          alignItems:"center",
           padding: "20px",
         }}
       >
@@ -130,14 +131,16 @@ const CartSidebar = ({ isOpen, onClose }) => {
 
           <button
             style={{
-              width: "100%",
-              height: "50px",
+              width: "300px",
+              height: "40px",
               background: "#1d4fa3",
               color: "white",
               border: "none",
               cursor: "pointer",
               marginTop: "10px",
               fontWeight: 600,
+              borderRadius:0,
+              fontSize:"14px"
             }}
           >
             CHECKOUT
