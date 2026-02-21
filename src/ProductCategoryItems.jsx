@@ -359,7 +359,7 @@ export const ProductCategoryItems = () => {
                             <div style={{ height: "0.09px", background: "#ddd", width: "100%", marginTop: "15px", marginBottom: "15px" }} />
                         </div>
                         {/* Hamburger */}
-                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom:"20px", marginTop:"10px" }}>
                             <div style={{ display: "flex", gap: "10px" }}>
                                 <FaBars
                                     size={22}
@@ -402,10 +402,10 @@ export const ProductCategoryItems = () => {
                             </div>
                         </div>
 
-                                                {/* product grid */}
+                        {/* product grid */}
                         <div className="ri2-grid" style={{
                             height: "70vh",        // important: fixed height
-    overflowY: "auto",  
+                            overflowY: "auto",
                         }}>
                             {filtered.map((p, idx) => {
                                 const rating = Math.max(0, Math.min(5, Number(p.rating || 0)));
