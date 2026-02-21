@@ -22,7 +22,7 @@ const AuthSidebar = ({ isOpen, onClose }) => {
                     , marginTop: "10px", marginBottom: "30px"
                 }}>
                     <p className="LightFontBold">Sign in</p>
-                    <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+                    <div style={{ display: "flex", gap: "10px", alignItems: "center", cursor:"pointer" }}>
                         <p className="LightFontBold">Close</p>
                         <IoClose size={24} onClick={onClose} color="black" />
                     </div>

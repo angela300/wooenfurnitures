@@ -70,7 +70,7 @@ export const TopScreen = () => {
                     <p className="LightFont">About us<span style={{ marginLeft: "15px", marginRight: "15px" }}>|</span></p>
                 </Link>
                 <Link to={`/TrackOrder/`}><p className="LightFont">Track order<span style={{ marginLeft: "15px", marginRight: "15px" }}>|</span></p> </Link>
-                <IoMdContact size={50} color="black" style={{ marginRight: "15px" }} onClick={() => setOpenAuth(true)} />
+                <IoMdContact size={50} color="black" style={{ marginRight: "15px", cursor:"pointer" }} onClick={() => setOpenAuth(true)} />
             </div>
         </div>
     );

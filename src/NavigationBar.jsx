@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 import SearchPopup from "./SearchPopup";
 import { useCart } from "./CartContext";
 import CartSidebar from "./CartSidebar";
+import { useNavigate } from "react-router-dom";
 
 export const NavigationBar = ({ products }) => {
     const { cartItems } = useCart();
     const [openCart, setOpenCart] = useState(false);
+    const navigate = useNavigate();
 
     const totalCount = cartItems.reduce(
         (acc, item) => acc + item.quantity,
@@ -132,8 +134,17 @@ export const NavigationBar = ({ products }) => {
                     }}
                 >
                     <div style={{ cursor: "pointer" }}>
-                        <h3 style={{ margin: 0 }}>Home</h3>
+                        
                     </div>
+                                            <Link
+                            to="/"
+                            style={{
+                                textDecoration: "none",
+                                color: "white",
+                            }}
+                        >
+                            <p style={{ margin: 0 }}>Home</p>
+                        </Link>
 
                     {/* Dropdown menus */}
                     <div style={{ display: "flex", gap: "28px", position: "relative", overflow: "visible" }}>
@@ -327,12 +338,22 @@ export const NavigationBar = ({ products }) => {
                     {icons.map((item, index) => {
 
                         const isCart = item.type === "cart";
+                        const isCompare = item.type === "compare";
+                        const isWishlist = item.type === "wishlist";
                         const displayCount = isCart ? totalCount : item.count;
 
                         return (
                             <div
                                 key={index}
-                                onClick={isCart ? () => setOpenCart(true) : undefined}
+                                onClick={() => {
+  if (isCart) {
+    setOpenCart(true);
+  } else if (isWishlist) {
+    navigate("/wish");
+  } else if (isCompare) {
+    navigate("/compare");
+  }
+}}
                                 style={{
                                     position: "relative",
                                     width: "40px",
@@ -343,7 +364,7 @@ export const NavigationBar = ({ products }) => {
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "center",
-                                    cursor: isCart ? "pointer" : "default",
+                                    cursor: "pointer",
                                 }}
                             >
                                 <span style={{ fontSize: "17px" }}>

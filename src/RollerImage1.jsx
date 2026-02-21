@@ -1,5 +1,6 @@
 import React from "react";
 import "./rollerimage1.css";
+import {Link } from "react-router-dom";
 
 export const RollerImage1 = () => {
   const categories = [
@@ -75,8 +76,10 @@ export const RollerImage1 = () => {
         <p className="LightFontBigger" style={{marginBottom:"30px"}}><strong>Popular Categories</strong></p>
         <div className="roller-grid">
           {categories.map((c) => (
-            <div className="roller-card" key={c.title} style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-              <img src={c.img} alt={c.title} />
+            <div className="roller-card" key={c.title} style={{ display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
+                                                  <Link to={`/product/${c.title}`}>
+                                        <img src={c.img} alt={c.title}/>
+                                    </Link>
               <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
                 <p className="roller-card-title">{c.title}</p>
                 <p className="LightFont" >{c.count} products</p>

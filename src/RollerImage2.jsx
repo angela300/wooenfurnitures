@@ -8,7 +8,8 @@ import { useCompare } from "./CompareContext";
 import { useWish } from "./WishContext";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
-import {FaEye } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
+import {Link} from "react-router-dom";
 import "./App.css"
 
 export const RollerImage2 = () => {
@@ -17,8 +18,8 @@ export const RollerImage2 = () => {
   const { addToWish, isInWish } = useWish();
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-    const { addToCart } = useCart();   // ✅ Correct placement
-    const [qty, setQty] = useState(1);
+  const { addToCart } = useCart();   // ✅ Correct placement
+  const [qty, setQty] = useState(1);
 
   const navigate = useNavigate();
 
@@ -139,7 +140,7 @@ export const RollerImage2 = () => {
     );
   };
 
-    const handleAddToCart = () => {
+  const handleAddToCart = () => {
     addToCart(
       {
         id: selectedProduct.id,
@@ -204,8 +205,8 @@ export const RollerImage2 = () => {
                         color={isInCompare(p.title) ? "green" : "grey"}
                       />
                     </div>
-                    <CiSearch size={20} color="grey"   style={{ cursor: "pointer" }}
-  onClick={() => setSelectedProduct(p)}/>
+                    <CiSearch size={20} color="grey" style={{ cursor: "pointer" }}
+                      onClick={() => setSelectedProduct(p)} />
 
                     <div onClick={() => {
                       if (isInWish(p.title)) {
@@ -217,132 +218,133 @@ export const RollerImage2 = () => {
                       style={{ cursor: "pointer" }}><FaHeart size={20} color={isInWish(p.title) ? "green" : "grey"} /></div>
                   </div>)}
 
-                  {selectedProduct && (
-  <div
-    style={{
-      position: "fixed",
-      inset: 0,
-      background: "rgba(0,0,0,0.1)",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      zIndex: 9999
-    }}
-    onClick={() => setSelectedProduct(null)} // close on outside click
-  >
-    {/* Modal Box */}
-    <div
-      style={{
-        width: "80%",
-        maxWidth: "1000px",
-        background: "white",
-        padding: "30px",
-        display: "flex",
-        gap: "30px",
-        position: "relative"
-      }}
-      onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
-    >
-      {/* Close Button */}
-      <div
-        onClick={() => setSelectedProduct(null)}
-        style={{
-          position: "absolute",
-          top: "15px",
-          right: "20px",
-          fontSize: "22px",
-          cursor: "pointer"
-        }}
-      >
-        ✕
-      </div>
-
-      {/* Image */}
-      <img
-        src={selectedProduct.img}
-        alt={selectedProduct.title}
-        style={{ width: "50%", objectFit: "cover" }}
-      />
-
-      {/* Details */}
-      <div style={{ flex: 1 }}>
-
-                <div className="ap-right">
-                  <p className="LightFontBold">{selectedProduct.title}</p>
-        
-                  <div className="ap-price">
-                    <span className="ap-old">
-                      KSh {selectedProduct.oldPrice.toLocaleString()}
-                    </span>
-                    <span className="ap-new">
-                      KSh {selectedProduct.newPrice.toLocaleString()}
-                    </span>
-                  </div>
-        
-                  {/* ORDER SECTION */}
-                  <div className="ap-orderBox">
-        
-                    {/* WhatsApp */}
-                    <button
-                      className="whatsappBtnQview"
-                      style={{borderRadius:0}}
-                      onClick={() =>
-                        window.open(
-                          `https://wa.me/254700025861?text=Hello%20I%20would%20like%20to%20order%20${encodeURIComponent(product.title)}`,
-                          "_blank"
-                        )
-                      }
+                {selectedProduct && (
+                  <div
+                    style={{
+                      position: "fixed",
+                      inset: 0,
+                      background: "rgba(0,0,0,0.1)",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      zIndex: 9999
+                    }}
+                    onClick={() => setSelectedProduct(null)} // close on outside click
+                  >
+                    {/* Modal Box */}
+                    <div
+                      style={{
+                        width: "80%",
+                        maxWidth: "1000px",
+                        background: "white",
+                        padding: "30px",
+                        display: "flex",
+                        gap: "30px",
+                        position: "relative"
+                      }}
+                      onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
                     >
-                      ORDER VIA WHATSAPP
-                    </button>
-        
-                    <div className="qty-cart">
-                      <div className="qty">
-                        <button onClick={() => setQty(qty > 1 ? qty - 1 : 1)}>
-                          -
-                        </button>
-                        <span>{qty}</span>
-                        <button onClick={() => setQty(qty + 1)}>+</button>
-                      </div>
-        
-                      <button
-                        className="addcartBtnQview"
-                        onClick={handleAddToCart}
-                      >
-                        ADD TO CART
-                      </button>
-        
-                      <button
-                        className="buyBtnQview"
-                        onClick={() => {
-                          handleAddToCart();
-                          navigate("/checkout");
+                      {/* Close Button */}
+                      <div
+                        onClick={() => setSelectedProduct(null)}
+                        style={{
+                          position: "absolute",
+                          top: "15px",
+                          right: "20px",
+                          fontSize: "22px",
+                          cursor: "pointer"
                         }}
                       >
-                        BUY NOW
-                      </button>
+                        ✕
+                      </div>
+
+                      {/* Image */}
+                      <img
+                        src={selectedProduct.img}
+                        alt={selectedProduct.title}
+                        style={{ width: "50%", objectFit: "cover" }}
+                      />
+
+                      {/* Details */}
+                      <div style={{ flex: 1 }}>
+
+                        <div className="ap-right">
+                          <p className="LightFontBold">{selectedProduct.title}</p>
+
+                          <div className="ap-price">
+                            <span className="ap-old">
+                              KSh {selectedProduct.oldPrice.toLocaleString()}
+                            </span>
+                            <span className="ap-new">
+                              KSh {selectedProduct.newPrice.toLocaleString()}
+                            </span>
+                          </div>
+
+                          {/* ORDER SECTION */}
+                          <div className="ap-orderBox">
+
+                            {/* WhatsApp */}
+                            <button
+                              className="whatsappBtnQview"
+                              style={{ borderRadius: 0 }}
+                              onClick={() =>
+                                window.open(
+                                  `https://wa.me/254700025861?text=Hello%20I%20would%20like%20to%20order%20${encodeURIComponent(product.title)}`,
+                                  "_blank"
+                                )
+                              }
+                            >
+                              ORDER VIA WHATSAPP
+                            </button>
+
+                            <div className="qty-cart">
+                              <div className="qty">
+                                <button onClick={() => setQty(qty > 1 ? qty - 1 : 1)}>
+                                  -
+                                </button>
+                                <span>{qty}</span>
+                                <button onClick={() => setQty(qty + 1)}>+</button>
+                              </div>
+
+                              <button
+                                className="addcartBtnQview"
+                                onClick={handleAddToCart}
+                              >
+                                ADD TO CART
+                              </button>
+
+                              <button
+                                className="buyBtnQview"
+                                onClick={() => {
+                                  handleAddToCart();
+                                  navigate("/checkout");
+                                }}
+                              >
+                                BUY NOW
+                              </button>
+                            </div>
+                          </div>
+
+                          {/* Wishlist / Compare */}
+                          <div className="ap-links">
+                            <span><FaHeart /> Add to wishlist</span>
+                            <span><FaExchangeAlt /> Add to compare</span>
+                          </div>
+
+                          {/* Watching section */}
+                          <div className="ap-watch">
+                            <FaEye /> 15 People watching this product now!
+                          </div>
+
+                        </div>
+                      </div>
                     </div>
                   </div>
-        
-                  {/* Wishlist / Compare */}
-                  <div className="ap-links">
-                    <span><FaHeart /> Add to wishlist</span>
-                    <span><FaExchangeAlt /> Add to compare</span>
-                  </div>
-        
-                  {/* Watching section */}
-                  <div className="ap-watch">
-                    <FaEye /> 15 People watching this product now!
-                  </div>
-        
-                </div>
-      </div>
-    </div>
-  </div>
-)}
+                )}
 
-
-                <img src={p.img} alt={p.title} className="ri2-img" />
+                <Link to={`/product/${p.title}`}>
+                  <img src={p.img} alt={p.title} className="ri2-img" />
+                </Link>
                 <div className="ri2-body">
                   <p className="LightFontBold">{p.title}</p>
                   {/* ⭐ Stars */}

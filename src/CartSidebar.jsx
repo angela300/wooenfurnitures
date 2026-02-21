@@ -1,9 +1,11 @@
 import { useCart } from "./CartContext";
 import { IoClose } from "react-icons/io5";
-import "./App.css"
+import "./App.css";
+import { useNavigate} from "react-router-dom";
 
 const CartSidebar = ({ isOpen, onClose }) => {
   const { cartItems, removeFromCart } = useCart();
+    const navigate = useNavigate();
 
   const totalPrice = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
@@ -49,7 +51,7 @@ const CartSidebar = ({ isOpen, onClose }) => {
                     , marginTop: "10px", marginBottom: "30px"
                 }}>
                     <p className="LightFontBig" style={{fontSize:"28px"}}>Shopping Cart</p>
-                    <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+                    <div style={{ display: "flex", gap: "10px", alignItems: "center", cursor:"pointer" }}>
                         <p className="LightFontBig">Close</p>
                         <IoClose size={24} onClick={onClose} color="black" />
                     </div>
@@ -142,6 +144,10 @@ const CartSidebar = ({ isOpen, onClose }) => {
               borderRadius:0,
               fontSize:"14px"
             }}
+                            onClick={() => {
+  
+                  navigate("/checkout");
+                }}
           >
             CHECKOUT
           </button>
