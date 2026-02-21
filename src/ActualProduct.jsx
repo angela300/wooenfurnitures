@@ -294,11 +294,12 @@ export const ActualProduct = () => {
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const navRef = useRef(null);
   const [expandedCategory, setExpandedCategory] = useState(null);
   const [activeTab, setActiveTab] = useState("CATEGORIES");
   const [profileOpen, setProfileOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-  const navRef = useRef(null);
+  
 
   const { addToCart } = useCart();   // ✅ Correct placement
   const {cartItems} = useCart();   
